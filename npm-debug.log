@@ -1,0 +1,110 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'install' ]
+2 info using npm@2.12.0
+3 info using node@v0.10.28
+4 verbose readDependencies loading dependencies from /Users/mikep/Sites/global-topic-page/package.json
+5 verbose install where, deps [ '/Users/mikep/Sites/global-topic-page',
+5 verbose install   [ 'bower',
+5 verbose install     'grunt',
+5 verbose install     'grunt-cli',
+5 verbose install     'grunt-contrib-sass',
+5 verbose install     'grunt-contrib-clean',
+5 verbose install     'grunt-contrib-uglify',
+5 verbose install     'grunt-contrib-watch',
+5 verbose install     'grunt-exec',
+5 verbose install     'gimme' ] ]
+6 verbose install where, peers [ '/Users/mikep/Sites/global-topic-page', [] ]
+7 verbose installManyTop reading for lifecycle /Users/mikep/Sites/global-topic-page/package.json
+8 info preinstall foundation-demo@1.1.2
+9 verbose installManyTop reading scoped package data from /Users/mikep/Sites/global-topic-page/node_modules/bower/package.json
+10 verbose installManyTop reading scoped package data from /Users/mikep/Sites/global-topic-page/node_modules/gimme/package.json
+11 verbose installManyTop reading scoped package data from /Users/mikep/Sites/global-topic-page/node_modules/grunt/package.json
+12 verbose installManyTop reading scoped package data from /Users/mikep/Sites/global-topic-page/node_modules/grunt-cli/package.json
+13 verbose installManyTop reading scoped package data from /Users/mikep/Sites/global-topic-page/node_modules/grunt-contrib-clean/package.json
+14 verbose installManyTop reading scoped package data from /Users/mikep/Sites/global-topic-page/node_modules/grunt-contrib-sass/package.json
+15 verbose installManyTop reading scoped package data from /Users/mikep/Sites/global-topic-page/node_modules/grunt-contrib-uglify/package.json
+16 verbose installManyTop reading scoped package data from /Users/mikep/Sites/global-topic-page/node_modules/grunt-contrib-watch/package.json
+17 verbose installManyTop reading scoped package data from /Users/mikep/Sites/global-topic-page/node_modules/grunt-exec/package.json
+18 info package.json grunt@0.4.5 No license field.
+19 info package.json grunt-cli@0.1.13 No license field.
+20 info package.json grunt-contrib-uglify@0.6.0 No license field.
+21 info package.json grunt-contrib-watch@0.5.3 No license field.
+22 info package.json bower@1.4.1 No license field.
+23 info package.json grunt-contrib-clean@0.6.0 No license field.
+24 info package.json grunt-exec@0.4.6 No license field.
+25 info package.json grunt-contrib-sass@0.8.1 No license field.
+26 verbose readDependencies loading dependencies from /Users/mikep/Sites/global-topic-page/package.json
+27 verbose targetResolver reading package data from /Users/mikep/Sites/global-topic-page/node_modules/bower/package.json
+28 verbose targetResolver reading package data from /Users/mikep/Sites/global-topic-page/node_modules/gimme/package.json
+29 verbose targetResolver reading package data from /Users/mikep/Sites/global-topic-page/node_modules/grunt/package.json
+30 verbose targetResolver reading package data from /Users/mikep/Sites/global-topic-page/node_modules/grunt-cli/package.json
+31 verbose targetResolver reading package data from /Users/mikep/Sites/global-topic-page/node_modules/grunt-contrib-clean/package.json
+32 verbose targetResolver reading package data from /Users/mikep/Sites/global-topic-page/node_modules/grunt-contrib-sass/package.json
+33 verbose targetResolver reading package data from /Users/mikep/Sites/global-topic-page/node_modules/grunt-contrib-uglify/package.json
+34 verbose targetResolver reading package data from /Users/mikep/Sites/global-topic-page/node_modules/grunt-contrib-watch/package.json
+35 verbose targetResolver reading package data from /Users/mikep/Sites/global-topic-page/node_modules/grunt-exec/package.json
+36 verbose targetResolver reading package data from /Users/mikep/Sites/global-topic-page/node_modules/.bin/bower/package.json
+37 verbose targetResolver reading package data from /Users/mikep/Sites/global-topic-page/node_modules/.bin/grunt/package.json
+38 silly cache add args [ 'gimme@git+ssh://git@github.com/meetup/gimme.git', null ]
+39 verbose cache add spec gimme@git+ssh://git@github.com/meetup/gimme.git
+40 silly cache add parsed spec { raw: 'gimme@git+ssh://git@github.com/meetup/gimme.git',
+40 silly cache add   scope: null,
+40 silly cache add   name: 'gimme',
+40 silly cache add   rawSpec: 'git+ssh://git@github.com/meetup/gimme.git',
+40 silly cache add   spec: 'git+ssh://git@github.com/meetup/gimme.git',
+40 silly cache add   type: 'hosted',
+40 silly cache add   hosted:
+40 silly cache add    { type: 'github',
+40 silly cache add      ssh: 'git@github.com:meetup/gimme.git',
+40 silly cache add      sshUrl: 'git+ssh://git@github.com/meetup/gimme.git',
+40 silly cache add      httpsUrl: 'git+https://github.com/meetup/gimme.git',
+40 silly cache add      gitUrl: 'git://github.com/meetup/gimme.git',
+40 silly cache add      shortcut: 'github:meetup/gimme',
+40 silly cache add      directUrl: 'https://raw.githubusercontent.com/meetup/gimme/master/package.json' } }
+41 verbose addRemoteGit caching git+ssh://git@github.com/meetup/gimme.git
+42 verbose addRemoteGit git+ssh://git@github.com/meetup/gimme.git is a repository hosted by github
+43 silly tryClone cloning git+ssh://git@github.com/meetup/gimme.git via git+ssh://git@github.com/meetup/gimme.git
+44 verbose tryClone ssh-git-github-com-meetup-gimme-git-f18c6127 not in flight; caching
+45 verbose already installed skipping grunt-contrib-watch@~0.5.3 /Users/mikep/Sites/global-topic-page
+46 verbose already installed skipping grunt-exec@0.4.6 /Users/mikep/Sites/global-topic-page
+47 verbose already installed skipping bower@1.4.1 /Users/mikep/Sites/global-topic-page
+48 verbose already installed skipping grunt@~0.4.5 /Users/mikep/Sites/global-topic-page
+49 verbose already installed skipping grunt-contrib-clean@0.6.0 /Users/mikep/Sites/global-topic-page
+50 verbose already installed skipping grunt-cli@ /Users/mikep/Sites/global-topic-page
+51 verbose already installed skipping grunt-contrib-uglify@~0.6.0 /Users/mikep/Sites/global-topic-page
+52 verbose already installed skipping grunt-contrib-sass@0.8.1 /Users/mikep/Sites/global-topic-page
+53 info git [ 'config', '--get', 'remote.origin.url' ]
+54 silly validateExistingRemote git+ssh://git@github.com/meetup/gimme.git remote.origin.url: ssh://git@github.com/meetup/gimme.git
+55 verbose validateExistingRemote git+ssh://git@github.com/meetup/gimme.git is updating existing cached remote /Users/mikep/.npm/_git-remotes/ssh-git-github-com-meetup-gimme-git-f18c6127
+56 info git [ 'fetch', '-a', 'origin' ]
+57 error git fetch -a origin (ssh://git@github.com/meetup/gimme.git) Permission denied (publickey).
+57 error git fetch -a origin (ssh://git@github.com/meetup/gimme.git) fatal: Could not read from remote repository.
+57 error git fetch -a origin (ssh://git@github.com/meetup/gimme.git)
+57 error git fetch -a origin (ssh://git@github.com/meetup/gimme.git) Please make sure you have the correct access rights
+57 error git fetch -a origin (ssh://git@github.com/meetup/gimme.git) and the repository exists.
+58 verbose stack Error: Command failed: Permission denied (publickey).
+58 verbose stack fatal: Could not read from remote repository.
+58 verbose stack
+58 verbose stack Please make sure you have the correct access rights
+58 verbose stack and the repository exists.
+58 verbose stack
+58 verbose stack     at ChildProcess.exithandler (child_process.js:647:15)
+58 verbose stack     at ChildProcess.EventEmitter.emit (events.js:98:17)
+58 verbose stack     at maybeClose (child_process.js:753:16)
+58 verbose stack     at Socket.<anonymous> (child_process.js:966:11)
+58 verbose stack     at Socket.EventEmitter.emit (events.js:95:17)
+58 verbose stack     at Pipe.close (net.js:465:12)
+59 verbose cwd /Users/mikep/Sites/global-topic-page
+60 error Darwin 14.1.0
+61 error argv "node" "/usr/local/bin/npm" "install"
+62 error node v0.10.28
+63 error npm  v2.12.0
+64 error code 128
+65 error Command failed: Permission denied (publickey).
+65 error fatal: Could not read from remote repository.
+65 error
+65 error Please make sure you have the correct access rights
+65 error and the repository exists.
+66 error If you need help, you may report this error at:
+66 error     <https://github.com/npm/npm/issues>
+67 verbose exit [ 1, true ]
