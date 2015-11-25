@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+	<title>Wandern Meetups - Berlin - Meetup</title>
+
+	<!-- Whitney -->
+	<link rel="stylesheet" href="../assets/whitney.css" />
+
+	<!-- Icon font (just until we get SVG working) -->
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+	<!-- CSS Hotfixes (mostly just compensating for Chapstick components) -->
+	<link rel="stylesheet" href="../assets/css/shim.css" />
+
+	<!-- Load Sassquatch2 -->
+	<link rel="stylesheet" href="../assets/css/sq2.css" />
+
+	<!-- Page-specific styles compiled from 'assets/scss/eventDetails.scss' - Your goal is to keep this as small as possible -->
+	<link rel="stylesheet" href="../assets/css/eventDetails.css" />
+
+	<!-- JS you'll want to load before the page loads -->
+	<script type="text/javascript" src="../bower_components/jquery/dist/jquery.min.js"></script>
+	<script type="text/javascript" src="../assets/js/dist/depends.min.js"></script>
+</head>
+
+<body>
+
+<script type="text/template" id="main-template">
+	<section class="stripe stripe--hero" style="background-image: url('http://placehold.it/2000x400');">
+		<div class="bounds stripe-heroContent"></div>
+	</section>
+	<section class="stripe"><div class="bounds">
+		<div class="row chunk">
+			<div class="row-item">
+				<h1 class="text--display">Wandern</h1>
+				<p class="chunk"><strong>7,046</strong> Gruppen mit <strong>5.4M</strong> Mitglieder</p>
+				<div class="runningText">
+					<p>Entdecke was in Meetup Gruppen zum Thema Wandern rund um den Globus passiert und fange selbst damit an, Dich mit Gleichgesinnten in Deiner Stadt zu treffen.</p>
+				</div>
+			</div>
+			<div class="row-item row-item--shrink">
+				<div class="toggleButton"><input type="checkbox" class="toggleButton-input" name="follow-topic" id="follow-topic" value="FollowTopic"><label for="follow-topic" class="toggleButton-label">+ Folgen</label></div>
+			</div>
+		</div>
+		<div class="chunk">
+			<h3 class="text--bold">Ähnliche Themen</h3>
+			<p>TOPICS GO HERE</p>
+		</div>
+	</div></section>
+	<section class="stripe"><div class="bounds">
+		<div class="row chunk">
+			<div class="row-item row-item--alignMiddle">
+				<h2 class="text--headline text--bold">In der Nähe von <a href="#" title ="Change location" class="link">Berlin</a></h2>
+			</div>
+			<div class="row-item row-item--shrink row-item--alignMiddle"><a href="http://www.meetup.com/find/?allMeetups=false&keywords=hiking&radius=5&userFreeform=Berlin%2C+Germany&mcId=c1007698&change=yes&sort=default" class="link display--none atMedium_display--block">mehr</a></div>
+		</div>
+		<ul class="gridList gridList--has1 atMedium_gridList--has2 atLarge_gridList--has4 chunk">
+		{{#localGroups}}
+			<li>
+				<a href="{{link}}" class="card card--group inverted" style="background-image: url(http://photos4.meetupstatic.com/photos/event/7/6/f/8/600_434010456.jpeg);">
+					<div class="card--group-content">
+						<h4 class="text--bold">{{name}}</h4>
+						<p>{{helpers.numberFormat(members)}} {{who}}</p>
+					</div>
+				</a>
+				{{#events}}
+					<a href="{{link}}">
+						<span class="text--small text--bold">{{name}}</span>
+						<span class="text--small display--block">{{helpers.dateFormat(time, "dddd, DD MMM, H:mm")}} {{#if venue}} &middot; {{venue.name}}{{/if}}</span>
+					</a>
+				{{/events}}
+		</li>
+		{{/localGroups}}
+		</ul>
+	</div></section>
+	<section class="stripe stripe--inverted inverted"><div class="bounds">
+		<div class="align--center chunk">
+			<h3 class="text--display text--bold">312</h3>
+			<p class="chunk">Luete mit Interesse an Wandern in der Nähe suchen</p>
+			<a href="#" class="button button--primary">Meetup Gruppe Starten</a>
+		</div>
+	</div></section>
+	<section class="stripe">
+		<div class="bounds">
+			<h2 class="text--headline text--bold align--center">Größte Meetup-Gruppen</h2>
+			<div class="chunk align--center"><span class="text--bold">Globale (7,046)</span> <span class="text--hint text--bold">&gt;</span> <a href="#" class="link">Deutschland (104)</a></div>
+
+			<ul>
+				{{#each globalGroups:i}}
+				<li class="chunk"><a href="#">
+
+					<span class="row">
+
+						<span class="row-item row-item--shrink" style="width: 48px;">
+							<span class="text--headline text--bold display--block align--center">{{i + 1}}</span>
+						</span>
+
+						<span class="row-item">
+
+							<span class="spreadable atLarge_spreadable--spread">
+								<span class="spreadable-item attachment">
+									<span class="text--bold display--block">{{name}}</span>
+									<span class="text--secondary text--small chunk">123 members in <a href="#" class="link">City, State</a></span>
+									<span class="row display--none atLarge_display--block">
+										<span class="row-item row-item--shrink row-item--alignMiddle" style="padding-left: 0;">
+											<span class="avatar avatar--person avatar--small"></span>
+										</span>
+										<span class="row-item row-item--alignMiddle text--secondary text--small">von Maria organisier</span>
+									</span>
+								</span>
+								<span class="spreadable-item spreadable-item--shrink">
+									<span class="chunk attachment">
+										<span class="row" style="height: 120px;">
+											<span class="row-item imgFill media--xl" style="background-image:url('http://lorempixel.com/300/200')"></span>
+											<span class="row-item row-item--shrink column media--l">
+												<span class="chunk imgFill column-item" style="background-image:url('http://lorempixel.com/150/100')"></span>
+												<span class="imgFill column-item" style="background-image:url('http://lorempixel.com/150/100')"></span>
+											</span>
+										</span>
+									</span>
+
+								</span>
+							</span>
+
+							<span class="row display--block atLarge_display--none">
+								<span class="row-item row-item--shrink row-item--alignMiddle">
+									<span class="avatar avatar--person avatar--small"></span>
+								</span>
+								<span class="row-item row-item--alignMiddle text--secondary text--small">von Maria organisier</span>
+							</span>
+
+						</span>
+
+					</span>
+				</a></li>
+				{{/each}}
+			</ul>
+		</div>
+	</section>
+
+	<!--
+		Now that we're in the template,
+		just write plain-jane HTML with Handlebars for data
+	-->
+
+</script>
+
+<!-- Your JS -->
+<script type="text/javascript" src="../assets/js/dist/scripts.min.js"></script>
+
+</body>
+</html>
