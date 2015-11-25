@@ -27,7 +27,7 @@ router.add('', function(context){ // homepage
 		observe: {
 		},
 		header : {
-			title: views.data.event.name,
+			title: 'Global Topic Page',
 			buttons: [
 				{ label: 'Actions', icon: 'ellipsis-h', fn: function(){alert('take action')} }
 			]
@@ -44,6 +44,7 @@ router.add('', function(context){ // homepage
 
 });
 
+/*
 router.add('mup-photos', function(context){ //photo view
 	views.show({
 		template: 'photos-template',
@@ -70,3 +71,4 @@ router.add('attendees', function(context){ //photo view
 		}
 	});
 });
+*/

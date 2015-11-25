@@ -3,6 +3,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-exec');
 	grunt.loadNpmTasks('grunt-contrib-sass');
 	grunt.loadNpmTasks('grunt-contrib-clean');
+	grunt.loadNpmTasks('grunt-es6-transpiler');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 
@@ -24,6 +25,15 @@ module.exports = function(grunt) {
 				}
 			}
 		},
+
+		// 'es6transpiler': {
+		// 	dist: {
+		// 		files: {
+		// 			'assets/js/gimme_es5.js':'node_modules/gimme/gimme.js'
+		// 		}
+		// 	}
+		// },
+
 		'uglify': {
 
 			options: {
@@ -38,7 +48,7 @@ module.exports = function(grunt) {
 						DIR_BOWER + 'rlite/rlite.js',
 						DIR_BOWER + 'moment/moment.js',
 						DIR_BOWER + 'jquery-waypoints/waypoints.min.js',
-						'node_modules/gimme/gimme.js',
+						DIR_JS + '/gimme_legacy/gimme.js',
 						DIR_BOWER + 'jquery.cookie/jquery.cookie.js',
 						DIR_BOWER + 'jquery-autosize/dist/autosize.js',
 						DIR_JS + 'src/foundation/*.js'

@@ -11,7 +11,7 @@
     "**/*.lock"
   ],
   "dependencies": {
-    "sassquatch2": "0.21.7",
+    "sassquatch2": null,
 		"jquery": null,
 		"moment": null,
 		"ractive": null,
