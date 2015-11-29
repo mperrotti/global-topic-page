@@ -16,8 +16,9 @@
     "grunt-contrib-uglify": "latest",
     "grunt-contrib-watch": "~0.5.3",
     "grunt-es6-transpiler": "^1.0.2",
-    "grunt-exec": "0.4.6"
+    "grunt-exec": "0.4.6",
+    "grunt-grunticon": "^2.2.2"
   },
-  "author": "adamd@meetup.com",
+  "author": "mikep@meetup.com",
   "license": "MIT"
 }

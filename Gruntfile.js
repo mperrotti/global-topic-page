@@ -6,11 +6,12 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-es6-transpiler');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-watch');
+	grunt.loadNpmTasks('grunt-grunticon');
 
-	var DIR_BOWER = './bower_components/',
-			DIR_CSS = 'assets/css/',
-			DIR_JS = 'assets/js/',
-			DIR_IMG = 'assets/img/';
+	var DIR_BOWER  = './bower_components/',
+			DIR_CSS    = 'assets/css/',
+			DIR_JS     = 'assets/js/',
+			DIR_IMG    = 'assets/img/'
 
 	grunt.initConfig({
 		bower: grunt.file.readJSON('bower.json'),
@@ -22,17 +23,10 @@ module.exports = function(grunt) {
 				files: {
 					'assets/css/sq2.css': DIR_BOWER + 'sassquatch2/sass/sassquatch.scss',
 					'assets/css/shim.css': 'assets/scss/shim.scss',
+					'assets/css/globalTopics.css': 'assets/scss/globalTopics.scss',
 				}
 			}
 		},
-
-		// 'es6transpiler': {
-		// 	dist: {
-		// 		files: {
-		// 			'assets/js/gimme_es5.js':'node_modules/gimme/gimme.js'
-		// 		}
-		// 	}
-		// },
 
 		'uglify': {
 
@@ -54,7 +48,8 @@ module.exports = function(grunt) {
 						DIR_JS + 'src/foundation/*.js'
 					],
 					'assets/js/dist/scripts.min.js': [
-						DIR_JS + 'src/*.js'
+						DIR_JS + 'src/*.js',
+						DIR_JS + 'src/globalTopic_interaction.js'
 					],
 				}
 			}
@@ -64,6 +59,21 @@ module.exports = function(grunt) {
 			css: [DIR_CSS],
 			js: DIR_JS + 'dist/'
 		},
+
+		'grunticon': {
+			myIcons: {
+				files: [{
+					expand: true,
+					cwd: 'assets/grunticon/svg/',
+					src: ['*.svg'],
+					dest: 'assets/grunticon/dest'
+				}],
+				options: {
+					enhanceSVG: true
+				}
+			}
+		},
+
 		'watch': {
 
 			html: {
@@ -95,6 +105,7 @@ module.exports = function(grunt) {
 		}
 	});
 	grunt.registerTask('default', ['watch']);
+	grunt.registerTask('icons', ['grunticon:myIcons']);
 	grunt.registerTask('build', ['clean', 'uglify', 'sass']);
 	grunt.registerTask('serve', ['build', 'exec']);
 };
