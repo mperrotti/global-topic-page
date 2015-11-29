@@ -1,0 +1,50 @@
+@import '../../bower_components/meetup-swatches/sass/colors';
+@import '../../bower_components/sassquatch2/sass/globals';
+@import '../../bower_components/sassquatch2/sass/util';
+
+$C_contentBGInvertedAccent: #180F3B;
+
+//
+// TO BE CONSIDERED AS GLOBAL CHANGES
+//
+.runningText {
+	max-width: 40em;
+}
+
+.toggleButton--lg .toggleButton-label {
+	font-size: 16px !important;
+	// padding: 4px 8px !important;
+}
+
+.input--withIcon {
+	background-position: $space-half center; // For RTL? idk
+	background-repeat: no-repeat;
+	background-size: $media-xs;
+	padding-left: $media-xs + $space;
+}
+
+.buttonList--small li {
+	padding-bottom: $space-half;
+}
+
+// might not want to use...
+// .text--large {
+// 	@include atMediaUp(medium) {
+// 		font-size: $font-size-display3;
+// 	}
+// }
+
+//
+// PAGE-SPECIFIC
+//
+.primaryTopic {
+	border-bottom: 2px solid $C_link;
+}
+
+.stripe--start {
+	background-image: url('../../assets/img/swarm.png');
+	background-color: $C_contentBGInvertedAccent;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 1100px 333px;
+}
