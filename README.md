@@ -1,28 +1,24 @@
-# foundation-demo
+# Global Topic Page
 
-## Install
+## Notes from Mike
 
-### 1. Make sure you have [Homebrew](http://brew.sh/) installed
+### Map parameters
+[Mapbox](https://www.mapbox.com/) zoom level 4 with selected city as center point
 
-If the following terminal command doesn't print a version number...
-```bash
-brew --version
-```
+### "Nearby Meetups" functionality
+* If there are 6 or more MUGs within 100 miles, show 6 MUGs
+* If there are <6 MUGs within 100 miles, show up to 3 MUGs
+* If there are 0 MUGs within 100 miles, hide the stripe
 
-...then run this:
-```bash
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-```
+### Suggested topic list logic
+When clicking to change the topic you're viewing, a list of "Suggested" topics appears. Use [`/2/topic_categories`](http://www.meetup.com/meetup_api/docs/2/topic_categories/) with user's lat/lon with a radius of 50mi
 
-### 2. Clone the repo and run the setup script
+### Start stripe functionality
+* If there are <500 people with topic within 50 miles, say the actual number
+* If there are >500 people with topic within 50 miles, say "500+"
+* If there are 0 people with topic within 50 miles, hide the start stripe
 
-```bash
-git clone git@github.com:meetup/foundation-demo.git; cd foundation-demo; ./setup.sh
-```
 
-## Getting starting with Sassquatch2
-
-1. [Everything is a `view`](https://github.com/meetup/sassquatch2/wiki/View-DOM-structure)
-2. [Hyphens have meaning](https://github.com/meetup/sassquatch2/wiki/Code-standards-&-guidelines#pcv-class-name-convention)
-3. [Read the docs](http://meetup.github.io/sassquatch2/)
-4. [layout tl;dr](https://github.com/meetup/sassquatch2/wiki/tl;dr)
+## Preview different data in the prototype
+* passing `?topic={topic-shortname}` will show data about another topic
+* passing `?lat={latCoord}&lon={lonCoord}` should change the map and content the "Nearby Meetups" stripe
