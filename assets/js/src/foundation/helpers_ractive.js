@@ -95,6 +95,17 @@ helpers.whoDid = function(namedArr, totalInt){
 	return str;
 }
 
+helpers.svgIcon = function(svgName, customClasses){
+	if(typeof customClasses === "undefined") {
+		svgName = svgName;
+		extraClasses = null;
+	}
+	var extraClasses = customClasses ? customClasses : '';
+	var svgString = '<svg class="icon icon-' + svgName + ' ' + extraClasses + '"><use xlink:href="#icon-' + svgName + '"/></svg>';
+
+	return svgString;
+}
+
 $.fn.exactlist = function(){
 	return this.each(function(){
 		var $first = $(this).find(' > li:first');
@@ -344,6 +355,3 @@ function whichTransitionEvent(){
 	}
 }
 var transitionEnd = whichTransitionEvent();
-
-
-

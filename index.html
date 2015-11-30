@@ -3,26 +3,26 @@
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
-	<title>Wandern Meetups - Berlin - Meetup</title>
+	<title>Hiking Meetups - Berlin - Meetup</title>
 
 	<!-- Whitney -->
-	<link rel="stylesheet" href="../assets/whitney.css" />
+	<link rel="stylesheet" href="./assets/whitney.css" />
 
 	<!-- Icon font (just until we get SVG working) -->
 	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
 	<!-- CSS Hotfixes (mostly just compensating for Chapstick components) -->
-	<link rel="stylesheet" href="../assets/css/shim.css" />
+	<link rel="stylesheet" href="assets/css/shim.css" />
 
 	<!-- Load Sassquatch2 -->
-	<link rel="stylesheet" href="../assets/css/sq2.css" />
+	<link rel="stylesheet" href="assets/css/sq2.css" />
 
 	<!-- Page-specific styles -->
-	<link rel="stylesheet" href="../assets/css/globalTopics.css" />
+	<link rel="stylesheet" href="assets/css/globalTopics.css" />
 
 	<!-- JS to load before the page loads -->
-	<script type="text/javascript" src="../bower_components/jquery/dist/jquery.min.js"></script>
-	<script type="text/javascript" src="../assets/js/dist/depends.min.js"></script>
+	<script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+	<script type="text/javascript" src="assets/js/dist/depends.min.js"></script>
 
 	<!-- Mapbox depends on these -->
 	<script src='https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.js'></script>
@@ -40,19 +40,20 @@
 		<div class="row chunk">
 			<div class="row-item">
 				<h1 class="text--display display--inlineBlock chunk primaryTopic">
-					<a href="#!/change-topic">Wandern</a>
+					<a href="#!/change-topic">Hiking</a>
+					{{{helpers.svgIcon('chevronDown')}}}
 				</h1>
-				<p class="chunk text--small"><strong>7,046</strong> Gruppen mit <strong>5.4M</strong> Mitglieder</p>
+				<p class="chunk text--small"><strong>7,046</strong> groups with <strong>5.4M</strong> members</p>
 			</div>
 			<div class="row-item row-item--shrink">
-				<div class="toggleButton toggleButton--lg"><input type="checkbox" class="toggleButton-input" name="follow-topic" id="follow-topic" value="FollowTopic"><label for="follow-topic" class="toggleButton-label">+ <span class="display--none atMedium_display--inline">Folgen</span></label></div>
+				<div class="toggleButton toggleButton--lg toggleButton--follow"><input type="checkbox" class="toggleButton-input" name="follow-topic" id="follow-topic" value="FollowTopic"><label for="follow-topic" class="toggleButton-label">{{{helpers.svgIcon('plus', 'valign--middle')}}} <span class="display--none atMedium_display--inline valign--middle">Follow</span></label></div>
 			</div>
 		</div>
 		<div class="runningText chunk">
-			<p>Entdecke was in Meetup Gruppen zum Thema Wandern rund um den Globus passiert und fange selbst damit an, Dich mit Gleichgesinnten in Deiner Stadt zu treffen.</p>
+			<p>Meet other local hiking enthusiasts. All those who are dedicated to hiking excursions near and far, with a focus on leaving no trace of litter on our lands!</p>
 		</div>
 		<div class="chunk">
-			<h3 class="text--bold">Ähnliche Themen</h3>
+			<h3 class="text--bold">Related Meetups</h3>
 			<ul class="inlineblockList buttonList--small">
 				{{#relatedTopics}}{{#data}}
 					<li><a href="/?topic={{urlkey}}" class="button button--small button--bordered" title="{{name}}">{{name}}</a></li>
@@ -63,9 +64,9 @@
 	<section class="stripe"><div class="bounds">
 		<div class="row chunk">
 			<div class="row-item row-item--alignMiddle">
-				<h2 class="text--headline text--bold">In der Nähe von Berlin</h2>
+				<h2 class="text--headline text--bold">Nearby Berlin</h2>
 			</div>
-			<div class="row-item row-item--shrink row-item--alignMiddle"><a href="http://www.meetup.com/find/?allMeetups=false&keywords=hiking&radius=5&userFreeform=Berlin%2C+Germany&mcId=c1007698&change=yes&sort=default" class="link display--none atMedium_display--block">mehr</a></div>
+			<div class="row-item row-item--shrink row-item--alignMiddle"><a href="http://www.meetup.com/find/?allMeetups=false&keywords=hiking&radius=5&userFreeform=Berlin&mcId=c1007698&change=yes&sort=default" class="link display--none atMedium_display--block">more {{{helpers.svgIcon('chevronRight', 'valign--middle')}}}</a></div>
 		</div>
 		<ul class="gridList gridList--has1 atMedium_gridList--has2 atLarge_gridList--has3 chunk">
 		{{#each localGroups:i}}
@@ -73,14 +74,21 @@
 				<li {{#if i>3}}class="display--none atLarge_display--inlineBlock"{{/if}}>
 					<a href="{{link}}" class="card card--group inverted" style="background-image: url({{photo}});">
 						<div class="card--group-content">
-							<h4 class="text--bold">{{name}}</h4>
-							<p>{{helpers.numberFormat(members)}} {{who}}</p>
+							<div class="row">
+								<div class="row-item valign--bottom">
+									<h4 class="text--bold">{{name}}</h4>
+									<p>{{helpers.numberFormat(members)}} {{who}}</p>
+								</div>
+								<div class="row-item row-item--shrink valign--bottom">
+									{{{helpers.svgIcon('circlePlus', 'icon-card-join valign--bottom')}}}
+								</div>
+							</div>
 						</div>
 					</a>
 					{{#events}}
 						<a href="{{link}}">
 							<span class="text--small text--bold">{{name}}</span>
-							<span class="text--small display--block">{{helpers.dateFormat(time, "dddd, DD MMM, H:mm")}} {{#if venue}} &middot; {{venue.name}}{{/if}}</span>
+							<span class="text--small display--block">{{helpers.dateFormat(time, "dddd, DD MMM, H:mm")}}</span>
 						</a>
 					{{/events}}
 				</li>
@@ -89,8 +97,15 @@
 					<li>
 						<a href="{{link}}" class="card card--group inverted" style="background-image: url(http://photos4.meetupstatic.com/photos/event/7/6/f/8/600_434010456.jpeg);">
 							<div class="card--group-content">
-								<h4 class="text--bold">{{name}}</h4>
-								<p>{{helpers.numberFormat(members)}} {{who}}</p>
+								<div class="row">
+									<div class="row-item valign--bottom">
+										<h4 class="text--bold">{{name}}</h4>
+										<p>{{helpers.numberFormat(members)}} {{who}}</p>
+									</div>
+									<div class="row-item row-item--shrink valign--bottom">
+										{{{helpers.svgIcon('circlePlus', 'icon-card-join valign--bottom')}}}
+									</div>
+								</div>
 							</div>
 						</a>
 						{{#events}}
@@ -108,14 +123,14 @@
 	<section class="stripe stripe--inverted stripe--start inverted"><div class="bounds">
 		<div class="align--center chunk">
 			<h3 class="text--display text--bold">312</h3>
-			<p class="chunk">Luete mit Interesse an Wandern in der Nähe suchen</p>
-			<a href="#" class="button button--primary">Meetup Gruppe Starten</a>
+			<p class="chunk">People in your area interested in Hiking</p>
+			<a href="#" class="button button--primary">Start a Meetup group</a>
 		</div>
 	</div></section>
 	<section class="stripe">
 		<div class="bounds">
-			<h2 class="text--headline text--bold align--center">Größte Wandern Meetup-Gruppen</h2>
-			<div class="chunk align--center"><span class="text--bold">Globale (7,046)</span> <span class="text--hint text--bold">&gt;</span> <a href="#" class="link">Deutschland (104)</a></div>
+			<h2 class="text--headline text--bold align--center">Largest Hiking Meetups</h2>
+			<div class="chunk align--center"><span class="text--bold valign--middle">Global (7,046)</span> <span class="text--hint text--bold">{{{helpers.svgIcon('arrowRight', 'icon--hint valign--middle')}}}</span> <a href="#" class="link valign--middle">United States (2,004)</a></div>
 
 			<ul>
 				{{#each globalGroups:i}}
@@ -123,8 +138,8 @@
 
 					<span class="row">
 
-						<span class="row-item row-item--shrink" style="width: 48px;">
-							<span class="text--headline text--bold display--block align--center">{{i + 1}}</span>
+						<span class="row-item row-item--shrink">
+							<span class="text--headline text--bold text--countdown display--block align--center">{{i + 1}}</span>
 						</span>
 
 						<span class="row-item">
@@ -135,11 +150,11 @@
 									<span class="text--secondary text--small chunk">{{helpers.numberFormat(members)}} {{who}} in <a href="#" class="link">{{city}}, {{^state}}{{country}}{{/state}}{{#state}}{{state}}{{/state}}</a></span>
 
 									{{#organizer}}
-									<span class="row display--none atLarge_display--block">
+									<span class="row display--none atLarge_display--block chunk">
 										<span class="row-item row-item--shrink row-item--alignMiddle" style="padding-left: 0;">
 											<span class="avatar avatar--person avatar--small" style="background-image: url('{{photo.thumb_link}}')"></span>
 										</span>
-										<span class="row-item row-item--alignMiddle text--secondary text--small">von {{name}} organisier</span>
+										<span class="row-item row-item--alignMiddle text--secondary text--small">Organized by {{name}}</span>
 									</span>
 									{{/organizer}}
 
@@ -147,9 +162,9 @@
 								{{#if photos}}
 								<span class="spreadable-item spreadable-item--shrink">
 									<span class="chunk attachment">
-										<span class="row" style="height: 120px;">
-											<span class="row-item imgFill media--xl" style="background-image:url('{{photos[0].photo_link}}')"></span>
-											<span class="row-item row-item--shrink column media--l">
+										<span class="row mugPhotos">
+											<span class="row-item imgFill mugPhotos--lg" style="background-image:url('{{photos[0].photo_link}}')"></span>
+											<span class="row-item row-item--shrink column mugPhotos--sm">
 												<span class="chunk imgFill column-item" style="background-image:url('{{photos[1].photo_link}}')"></span>
 												<span class="imgFill column-item" style="background-image:url('{{photos[2].photo_link}}')"></span>
 											</span>
@@ -159,11 +174,11 @@
 								{{/if}}
 							</span>
 
-							<span class="row display--block atLarge_display--none attachment">
+							<span class="row display--block atLarge_display--none attachment chunk">
 								<span class="row-item row-item--shrink row-item--alignMiddle" style="padding-left: 0;">
 									<span class="avatar avatar--person avatar--small" style="background-image: url('{{organizer.photo.thumb_link}}')"></span>
 								</span>
-								<span class="row-item row-item--alignMiddle text--secondary text--small">von {{organizer.name}} organisier</span>
+								<span class="row-item row-item--alignMiddle text--secondary text--small">Organized by {{organizer.name}}</span>
 							</span>
 
 						</span>
@@ -199,7 +214,7 @@
 <script src='assets/icons/icons.js'></script>
 
 <!-- JS -->
-<script type="text/javascript" src="../assets/js/dist/scripts.min.js"></script>
+<script type="text/javascript" src="assets/js/dist/scripts.min.js"></script>
 
 </body>
 </html>
