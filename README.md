@@ -1,7 +1,12 @@
-# Global Topic Page
+## Installing depends
+cd to whatever directory this is saved in, then run `npm install` followed by `bower update`, and finally `grunt build`
+Message me if you have issues.
+
+## Preview different data in the prototype
+* passing `?topic={topic-shortname}` will show data about another topic
+* passing `?lat={latCoord}&lon={lonCoord}` should change the map and content the "Nearby Meetups" stripe
 
 ## Notes from Mike
-
 ### Map parameters
 [Mapbox](https://www.mapbox.com/) zoom level 4 with selected city as center point
 
@@ -18,7 +23,3 @@ When clicking to change the topic you're viewing, a list of "Suggested" topics a
 * If there are >500 people with topic within 50 miles, say "500+"
 * If there are 0 people with topic within 50 miles, hide the start stripe
 
-
-## Preview different data in the prototype
-* passing `?topic={topic-shortname}` will show data about another topic
-* passing `?lat={latCoord}&lon={lonCoord}` should change the map and content the "Nearby Meetups" stripe
