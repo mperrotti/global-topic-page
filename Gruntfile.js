@@ -3,10 +3,10 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-exec');
 	grunt.loadNpmTasks('grunt-contrib-sass');
 	grunt.loadNpmTasks('grunt-contrib-clean');
-	grunt.loadNpmTasks('grunt-es6-transpiler');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-watch');
-	grunt.loadNpmTasks('grunt-grunticon');
+	grunt.loadNpmTasks('grunt-svgstore');
+	grunt.loadNpmTasks('grunt-svginjector');
 
 	var DIR_BOWER  = './bower_components/',
 			DIR_CSS    = 'assets/css/',
@@ -55,21 +55,49 @@ module.exports = function(grunt) {
 			}
 
 		},
+
 		'clean': {
 			css: [DIR_CSS],
 			js: DIR_JS + 'dist/'
 		},
 
-		'grunticon': {
-			myIcons: {
-				files: [{
-					expand: true,
-					cwd: 'assets/grunticon/svg/',
-					src: ['*.svg'],
-					dest: 'assets/grunticon/dest'
-				}],
+		'svgstore': {
+			icons: {
+				files: {
+					'assets/icons/iconsprite.svg': ['assets/icons/svg/*.svg']
+				},
 				options: {
-					enhanceSVG: true
+
+					/*
+					prefix all icons with an unambiguous label
+					*/
+					prefix: 'icon-',
+
+					/*
+					cleans fill, stroke, stroke-width attributes
+					so that we can style them from CSS
+					*/
+					cleanup: true,
+
+					/*
+					write a custom function to strip the first part
+					of the file that Adobe Illustrator generates
+					when exporting the artboards to SVG
+					*/
+					convertNameToId: function(name) {
+					return name.replace(/^\w+\_/, '');
+					}
+				}
+			}
+		},
+
+		'svginjector': {
+			icons: {
+				files: {
+					'assets/icons/icons.js': ['assets/icons/iconsprite.svg']
+				},
+				options: {
+					container: 'icon-container'
 				}
 			}
 		},
@@ -105,7 +133,7 @@ module.exports = function(grunt) {
 		}
 	});
 	grunt.registerTask('default', ['watch']);
-	grunt.registerTask('icons', ['grunticon:myIcons']);
+	grunt.registerTask('icons', ['svgstore:icons', 'svginjector:icons']);
 	grunt.registerTask('build', ['clean', 'uglify', 'sass']);
 	grunt.registerTask('serve', ['build', 'exec']);
 };

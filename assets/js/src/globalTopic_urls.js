@@ -28,7 +28,7 @@ router.add('', function(context){ // homepage
 		observe: {
 		},
 		header : {
-			title: 'Wandern Meetups',
+			title: 'Hiking Meetups',
 			buttons: [
 			]
 		}
@@ -57,32 +57,3 @@ router.add('change-topic', function(context){ //photo view
 		}
 	});
 });
-
-/*
-router.add('mup-photos', function(context){ //photo view
-	views.show({
-		template: 'photos-template',
-		events: {
-		},
-		observe: {
-		},
-		header : {
-			title: views.data.event.name,
-			subtitle: views.data.photos.length + ' photos'
-		}
-	});
-
-});
-
-router.add('attendees', function(context){ //photo view
-	views.modal_show({
-		template: "member-listing-template",
-		events: {
-		},
-		header : {
-			title: views.data.event.yes_rsvp_count + ' people',
-			subtitle: 'to ' + views.data.event.name
-		}
-	});
-});
-*/

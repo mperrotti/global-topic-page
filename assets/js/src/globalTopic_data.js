@@ -10,8 +10,12 @@ var views = new ViewManager(function(){
 			eventId = getParameterByName('mupID') || 223601492,
 			topic   = getParameterByName('topic') || 'hiking',
 			topicID = 638, //hiking
-			lat     = 52.5167,
-			lon     = 13.3833;
+			lat     = getParameterByName('lat') || 52.5167,
+			lon     = getParameterByName('lon') || 13.3833;
+
+			// Chicago lat/lon
+			// lat     = 41.8369,
+			// lon     = 87.6847;
 
 	// ↓ ↓ ↓ ↓ Where we pick which data we want ↓ ↓ ↓ ↓
 	var shoppingList = [
@@ -31,7 +35,16 @@ var views = new ViewManager(function(){
 		window.addEventListener('hashchange', processHash);
 		processHash();
 
-		console.log(views.data);
+		// console.log(views.data);
+
+		//
+		// TODO: Get this code to fire ONLY when the template is rendered. This is sloppy
+		//
+		L.mapbox.accessToken = 'pk.eyJ1IjoibXBlcnJvdHRpIiwiYSI6ImNpaGpyOWZpdDBuZ2p0cGx6bnFoZWpyc2MifQ.i1DaUuwQ2EdEGmGqQcuTyw';
+		var map = L.mapbox.map('map', 'mapbox.streets').setView([lat, lon], 4);
+		map.scrollWheelZoom.disable();
+		//
+
 	});
 
 });
