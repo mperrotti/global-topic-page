@@ -23,7 +23,7 @@ var views = new ViewManager(function(){
 			{"gimme": "events", "data": {"page": 1}, "match": [ ["id", "group_id"] ] }
 		]},
 		{"gimme": "groups", "key":"globalGroups", "data": {"topic": topic, "page": 10, "zip": ""}},
-		{"gimme": "topic_categories", "key":"sugTopics", "data": {"lat": lat, "lon": lon, "radius": 50, "page": 10}},
+		{"gimme": "topic_categories", "key":"sugTopics", "data": {"lat": lat, "lon": lon, "radius": 50}},
 		{"gimme": "recommended_topics", "key":"relatedTopics", "data": {"other_topics": topicID, "page": 10}}
 	];
 	// ↑ ↑ ↑ ↑ Where we pick which data we want ↑ ↑ ↑ ↑
@@ -35,7 +35,7 @@ var views = new ViewManager(function(){
 		window.addEventListener('hashchange', processHash);
 		processHash();
 
-		// console.log(views.data);
+		console.log(views.data);
 
 		//
 		// TODO: Get this code to fire ONLY when the template is rendered. This is sloppy
