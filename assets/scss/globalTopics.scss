@@ -32,6 +32,13 @@ $C_contentBGInvertedAccent: #180F3B;
 	padding-left: 0;
 }
 
+.toggleButton-input:checked + .toggleButton-label:hover {
+	color: $C_link;
+	use {
+		fill: $C_link;
+	}
+}
+
 //
 // PAGE-SPECIFIC
 //
@@ -73,4 +80,33 @@ $C_contentBGInvertedAccent: #180F3B;
 
 .text--countdown {
 	width: $media-m;
+}
+
+.join-icon-container {
+	position: relative;
+	z-index: 999;
+}
+
+//
+// PROTOTYPE-SPEICIFIC
+//
+.toggleButton-input + .toggleButton-label {
+	.follow-inactive {
+		display: inline;
+	}
+	.follow-active {
+		display: none;
+	}
+}
+
+.toggleButton-input:checked + .toggleButton-label {
+	use {
+		fill: white;
+	}
+	.follow-inactive {
+		display: none;
+	}
+	.follow-active {
+		display: inline;
+	}
 }
