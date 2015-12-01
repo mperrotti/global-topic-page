@@ -22,3 +22,13 @@ function loadMap() {
 		console.log('map not yet loaded');
 	}
 }
+
+function testJoin(event) {
+	//console.log($(event.node).find('.join-icon-container'));
+if ($(event.original.target).parents('.js-join-icon-container').length) {
+	event.original.preventDefault();
+	console.log('is icon');
+} else {
+	console.log('is not icon');
+}
+}

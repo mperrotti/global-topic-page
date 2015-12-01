@@ -43,17 +43,27 @@
 					<a href="#!/change-topic">Hiking</a>
 					{{{helpers.svgIcon('chevronDown')}}}
 				</h1>
-				<p class="chunk text--small"><strong>7,046</strong> groups with <strong>5.4M</strong> members</p>
+				<p class="chunk"><strong>7,046</strong> groups with <strong>5.4M</strong> members</p>
 			</div>
 			<div class="row-item row-item--shrink">
-				<div class="toggleButton toggleButton--lg toggleButton--follow"><input type="checkbox" class="toggleButton-input" name="follow-topic" id="follow-topic" value="FollowTopic"><label for="follow-topic" class="toggleButton-label">{{{helpers.svgIcon('plus', 'valign--middle')}}} <span class="display--none atMedium_display--inline valign--middle">Follow</span></label></div>
+				<div class="toggleButton toggleButton--lg toggleButton--follow">
+					<input type="checkbox" class="toggleButton-input" name="follow-topic" id="follow-topic" value="FollowTopic">
+					<label for="follow-topic" class="toggleButton-label">
+						<span class="follow-active">
+							{{{helpers.svgIcon('check', 'valign--middle')}}} <span class="display--none atMedium_display--inline valign--middle">Following</span>
+						</span>
+						<span class="follow-inactive">
+							{{{helpers.svgIcon('plus', 'valign--middle')}}} <span class="display--none atMedium_display--inline valign--middle">Follow</span>
+						</span>
+					</label>
+				</div>
 			</div>
 		</div>
 		<div class="runningText chunk">
 			<p>Meet other local hiking enthusiasts. All those who are dedicated to hiking excursions near and far, with a focus on leaving no trace of litter on our lands!</p>
 		</div>
 		<div class="chunk">
-			<h3 class="text--bold">Related Meetups</h3>
+			<h3 class="text--bold">Related Topics</h3>
 			<ul class="inlineblockList buttonList--small">
 				{{#relatedTopics}}{{#data}}
 					<li><a href="/?topic={{urlkey}}" class="button button--small button--bordered" title="{{name}}">{{name}}</a></li>
@@ -66,12 +76,12 @@
 			<div class="row-item row-item--alignMiddle">
 				<h2 class="text--headline text--bold">Nearby Berlin</h2>
 			</div>
-			<div class="row-item row-item--shrink row-item--alignMiddle"><a href="http://www.meetup.com/find/?allMeetups=false&keywords=hiking&radius=5&userFreeform=Berlin&mcId=c1007698&change=yes&sort=default" class="link display--none atMedium_display--block">more {{{helpers.svgIcon('chevronRight', 'valign--middle')}}}</a></div>
+			<div class="row-item row-item--shrink row-item--alignMiddle"><a href="http://www.meetup.com/find/?allMeetups=false&keywords=hiking&radius=5&userFreeform=Berlin&mcId=c1007698&change=yes&sort=default" class="link display--none atMedium_display--block">more{{{helpers.svgIcon('chevronRight', 'valign--middle')}}}</a></div>
 		</div>
 		<ul class="gridList gridList--has1 atMedium_gridList--has2 atLarge_gridList--has3 chunk">
 		{{#each localGroups:i}}
 			{{#if localGroups.length>5}}
-				<li {{#if i>3}}class="display--none atLarge_display--inlineBlock"{{/if}}>
+				<li on-click="testJoin" {{#if i>3}}class="display--none atLarge_display--inlineBlock"{{/if}}>
 					<a href="{{link}}" class="card card--group inverted" style="background-image: url({{photo}});">
 						<div class="card--group-content">
 							<div class="row">
@@ -79,39 +89,39 @@
 									<h4 class="text--bold">{{name}}</h4>
 									<p>{{helpers.numberFormat(members)}} {{who}}</p>
 								</div>
-								<div class="row-item row-item--shrink valign--bottom">
+								<div class="row-item row-item--shrink valign--bottom js-join-icon-container">
 									{{{helpers.svgIcon('circlePlus', 'icon-card-join valign--bottom')}}}
 								</div>
 							</div>
 						</div>
 					</a>
 					{{#events}}
-						<a href="{{link}}">
+						<a href="#">
 							<span class="text--small text--bold">{{name}}</span>
-							<span class="text--small display--block">{{helpers.dateFormat(time, "dddd, DD MMM, H:mm")}}</span>
+							<span class="text--small display--block">{{helpers.dateFormat(time, "dddd, DD MMM [at] H:mm")}}</span>
 						</a>
 					{{/events}}
 				</li>
 			{{else}}
 				{{#if i<3}}
-					<li>
-						<a href="{{link}}" class="card card--group inverted" style="background-image: url(http://photos4.meetupstatic.com/photos/event/7/6/f/8/600_434010456.jpeg);">
+					<li on-click="testJoin">
+						<a href="{{link}}" class="card card--group inverted" style="background-image: url({{photo}});">
 							<div class="card--group-content">
 								<div class="row">
 									<div class="row-item valign--bottom">
 										<h4 class="text--bold">{{name}}</h4>
 										<p>{{helpers.numberFormat(members)}} {{who}}</p>
 									</div>
-									<div class="row-item row-item--shrink valign--bottom">
+									<div class="row-item row-item--shrink valign--bottom js-join-icon-container">
 										{{{helpers.svgIcon('circlePlus', 'icon-card-join valign--bottom')}}}
 									</div>
 								</div>
 							</div>
 						</a>
 						{{#events}}
-							<a href="{{link}}">
+							<a href="#">
 								<span class="text--small text--bold">{{name}}</span>
-								<span class="text--small display--block">{{helpers.dateFormat(time, "dddd, DD MMM, H:mm")}} {{#if venue}} &middot; {{venue.name}}{{/if}}</span>
+								<span class="text--small display--block">{{helpers.dateFormat(time, "dddd, DD MMM [at] H:mm")}}</span>
 							</a>
 						{{/events}}
 					</li>
@@ -124,13 +134,13 @@
 		<div class="align--center chunk">
 			<h3 class="text--display text--bold">312</h3>
 			<p class="chunk">People in your area interested in Hiking</p>
-			<a href="#" class="button button--primary">Start a Meetup group</a>
+			<a href="#" class="button button--primary">Start your own Meetup</a>
 		</div>
 	</div></section>
 	<section class="stripe">
 		<div class="bounds">
 			<h2 class="text--headline text--bold align--center">Largest Hiking Meetups</h2>
-			<div class="chunk align--center"><span class="text--bold valign--middle">Global (7,046)</span> <span class="text--hint text--bold">{{{helpers.svgIcon('arrowRight', 'icon--hint valign--middle')}}}</span> <a href="#" class="link valign--middle">United States (2,004)</a></div>
+			<div class="chunk align--center"><span class="text--bold valign--middle">Global (7,046)</span> <span class="text--hint text--bold">{{{helpers.svgIcon('arrowRight', 'icon--hint valign--middle')}}}</span> <a href="#" class="link valign--middle">Germany (204)</a></div>
 
 			<ul>
 				{{#each globalGroups:i}}
@@ -202,9 +212,9 @@
 	<section class="stripe"><div class="bounds">
 		<h3 class="text--bold chunk">Suggestions</h3>
 		<ul class="list">
-			{{#sugTopics}}
-				<li class="list-item"><a href="/?topic={{shortname}}" class="chunk" title="{{name}}">{{name}}</a></li>
-			{{/sugTopics}}
+			{{#each sugTopics:i}}
+				<li class="list-item"><a href="/?topic={{sugTopics[i].best_topics[0].urlkey}}" class="chunk" title="{{sugTopics[i].best_topics[0].name}}">{{sugTopics[i].best_topics[0].name}}</a></li>
+			{{/each}}
 		</ul>
 	</div></section>
 </script>

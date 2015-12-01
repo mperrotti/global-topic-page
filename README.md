@@ -16,7 +16,7 @@ Message me if you have issues.
 * If there are 0 MUGs within 100 miles, hide the stripe
 
 ### Suggested topic list logic
-When clicking to change the topic you're viewing, a list of "Suggested" topics appears. Use [`/2/topic_categories`](http://www.meetup.com/meetup_api/docs/2/topic_categories/) with user's lat/lon with a radius of 50mi
+When clicking to change the topic you're viewing, a list of "Suggested" topics appears. Use [`/2/topic_categories`](http://www.meetup.com/meetup_api/docs/2/topic_categories/) and take the first `best_topic` from each category. If it affects what gets returned, pass in user's lat/lon with a radius of 50mi
 
 ### Start stripe functionality
 * If there are <500 people with topic within 50 miles, say the actual number

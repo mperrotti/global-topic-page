@@ -23,7 +23,8 @@ router.add('', function(context){ // homepage
 	views.show({
 		template: 'main-template',
 		events: {
-			"loadMap" : loadMap()
+			"loadMap" : loadMap(),
+			"testJoin" : testJoin
 		},
 		observe: {
 		},
