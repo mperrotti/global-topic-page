@@ -39,11 +39,25 @@ $C_contentBGInvertedAccent: #180F3B;
 	}
 }
 
+$dotTimeBase: 500;
+.endlessLoader, .endlessLoader:before, .endlessLoader:after {
+	-webkit-animation: dotAnim #{$dotTimeBase}ms ease -#{$dotTimeBase/4}ms infinite alternate;
+	animation: dotAnim #{$dotTimeBase}ms ease -#{$dotTimeBase/4}ms infinite alternate;
+	background: transparentize($C_textSecondary, .8);
+	border-radius: 100%;
+	content: "";
+	height: $space-half;
+	display: inline-block;
+	position: relative;
+	width: $space-half;
+}
+
 //
 // PAGE-SPECIFIC
 //
 .primaryTopic {
 	border-bottom: 2px solid $C_link;
+	margin-bottom: $space-half;
 }
 
 .toggleButton--follow .toggleButton-label {

@@ -39,11 +39,10 @@
 	<section class="stripe"><div class="bounds">
 		<div class="row chunk">
 			<div class="row-item">
-				<h1 class="text--display display--inlineBlock chunk primaryTopic">
-					<a href="#!/change-topic">Hiking</a>
-					{{{helpers.svgIcon('chevronDown')}}}
+				<h1 class="text--display display--inlineBlock primaryTopic">
+					<a href="#!/change-topic">Hiking {{{helpers.svgIcon('chevronDown')}}}</a>
 				</h1>
-				<p class="chunk"><strong>7,046</strong> groups with <strong>5.4M</strong> members</p>
+				<p class="matchLineHeight"><strong>7,046</strong> groups with <strong>5.4M</strong> members</p>
 			</div>
 			<div class="row-item row-item--shrink">
 				<div class="toggleButton toggleButton--lg toggleButton--follow">
@@ -63,7 +62,7 @@
 			<p>Meet other local hiking enthusiasts. All those who are dedicated to hiking excursions near and far, with a focus on leaving no trace of litter on our lands!</p>
 		</div>
 		<div class="chunk">
-			<h3 class="text--bold">Related Topics</h3>
+			<h3 class="text--bold matchLineHeight">Related Topics</h3>
 			<ul class="inlineblockList buttonList--small">
 				{{#relatedTopics}}{{#data}}
 					<li><a href="/?topic={{urlkey}}" class="button button--small button--bordered" title="{{name}}">{{name}}</a></li>
@@ -74,148 +73,143 @@
 	<section class="stripe"><div class="bounds">
 		<div class="row chunk">
 			<div class="row-item row-item--alignMiddle">
-				<h2 class="text--headline text--bold">Nearby Berlin</h2>
+				<h2 class="text--headline text--bold">Hiking Meetups near Berlin</h2>
 			</div>
 			<div class="row-item row-item--shrink row-item--alignMiddle"><a href="http://www.meetup.com/find/?allMeetups=false&keywords=hiking&radius=5&userFreeform=Berlin&mcId=c1007698&change=yes&sort=default" class="link display--none atMedium_display--block">more{{{helpers.svgIcon('chevronRight', 'valign--middle')}}}</a></div>
 		</div>
-		<ul class="gridList gridList--has1 atMedium_gridList--has2 atLarge_gridList--has3 chunk">
-		{{#each localGroups:i}}
-			{{#if localGroups.length>5}}
-				<li on-click="testJoin" {{#if i>3}}class="display--none atLarge_display--inlineBlock"{{/if}}>
-					<a href="{{link}}" class="card card--group inverted" style="background-image: url({{photo}});">
-						<div class="card--group-content">
-							<div class="row">
-								<div class="row-item valign--bottom">
-									<h4 class="text--bold">{{name}}</h4>
-									<p>{{helpers.numberFormat(members)}} {{who}}</p>
-								</div>
-								<div class="row-item row-item--shrink valign--bottom js-join-icon-container">
-									{{{helpers.svgIcon('circlePlus', 'icon-card-join valign--bottom')}}}
-								</div>
-							</div>
-						</div>
+		<ul class="gridList gridList--has1 atMedium_gridList--has2 atLarge_gridList--has3">
+		{{#localGroups}}
+			<li {{#if i>3}}class="display--none atLarge_display--inlineBlock"{{/if}}>
+				<a href="{{link}}" class="card card--group inverted" style="background-image: url({{photo}});">
+					<div class="card--group-content">
+						<h4 class="text--bold">{{name}}</h4>
+						<p>{{helpers.numberFormat(members)}} {{who}}</p>
+					</div>
+				</a>
+				{{#events}}
+					<a href="#">
+						<span class="text--small text--bold matchLineHeight">{{name}}</span>
+						<span class="text--small display--block matchLineHeight">{{helpers.dateFormat(time, "dddd, DD MMM [at] H:mm")}}</span>
 					</a>
-					{{#events}}
-						<a href="#">
-							<span class="text--small text--bold">{{name}}</span>
-							<span class="text--small display--block">{{helpers.dateFormat(time, "dddd, DD MMM [at] H:mm")}}</span>
-						</a>
-					{{/events}}
-				</li>
-			{{else}}
-				{{#if i<3}}
-					<li on-click="testJoin">
-						<a href="{{link}}" class="card card--group inverted" style="background-image: url({{photo}});">
-							<div class="card--group-content">
-								<div class="row">
-									<div class="row-item valign--bottom">
-										<h4 class="text--bold">{{name}}</h4>
-										<p>{{helpers.numberFormat(members)}} {{who}}</p>
-									</div>
-									<div class="row-item row-item--shrink valign--bottom js-join-icon-container">
-										{{{helpers.svgIcon('circlePlus', 'icon-card-join valign--bottom')}}}
-									</div>
-								</div>
-							</div>
-						</a>
-						{{#events}}
-							<a href="#">
-								<span class="text--small text--bold">{{name}}</span>
-								<span class="text--small display--block">{{helpers.dateFormat(time, "dddd, DD MMM [at] H:mm")}}</span>
-							</a>
-						{{/events}}
-					</li>
-				{{/if}}
-			{{/if}}
-		{{/each}}
+				{{/events}}
+			</li>
+		{{/localGroups}}
 		</ul>
+		<div class="chunk align--center display--block atMedium_display--none">
+			<a class="button button--bordered" href="#">Show more</a>
+		</div>
 	</div></section>
 	<section class="stripe stripe--inverted stripe--start inverted"><div class="bounds">
 		<div class="align--center chunk">
 			<h3 class="text--display text--bold">312</h3>
-			<p class="chunk">People in your area interested in Hiking</p>
+			<p class="chunk">People nearby are interested in Hiking</p>
 			<a href="#" class="button button--primary">Start your own Meetup</a>
 		</div>
 	</div></section>
-	<section class="stripe">
-		<div class="bounds">
-			<h2 class="text--headline text--bold align--center">Largest Hiking Meetups</h2>
-			<div class="chunk align--center"><span class="text--bold valign--middle">Global (7,046)</span> <span class="text--hint text--bold">{{{helpers.svgIcon('arrowRight', 'icon--hint valign--middle')}}}</span> <a href="#" class="link valign--middle">Germany (204)</a></div>
+	<section class="stripe"><div class="bounds">
 
-			<ul>
-				{{#each globalGroups:i}}
-				<li class="chunk"><a href="#">
+		<h2 class="text--headline text--bold align--center">Largest Hiking Meetups</h2>
+		<div class="chunk align--center"><span class="text--bold valign--middle">Global (7,046)</span> <span class="text--hint text--bold">{{{helpers.svgIcon('arrowRight', 'icon--hint valign--middle')}}}</span> <a href="#" class="link valign--middle">Germany (204)</a></div>
 
-					<span class="row">
+		<ul>
+			{{#each globalGroups:i}}
+			<li class="chunk"><a href="#">
 
-						<span class="row-item row-item--shrink">
-							<span class="text--headline text--bold text--countdown display--block align--center">{{i + 1}}</span>
+				<span class="row">
+
+					<span class="row-item row-item--shrink">
+						<span class="text--headline text--bold text--countdown display--block align--center">{{i + 1}}</span>
+					</span>
+
+					<span class="row-item">
+
+						<span class="spreadable atLarge_spreadable--spread">
+							<span class="spreadable-item attachment">
+								<span class="text--bold display--block">{{name}}</span>
+								<span class="text--secondary text--small chunk">{{helpers.numberFormat(members)}} {{who}} in <a href="#" class="link">{{city}}, {{^state}}{{country}}{{/state}}{{#state}}{{state}}{{/state}}</a></span>
+
+								{{#organizer}}
+								<span class="row display--none atLarge_display--block chunk">
+									<span class="row-item row-item--shrink row-item--alignMiddle" style="padding-left: 0;">
+										<span class="avatar avatar--person avatar--small" style="background-image: url('{{photo.thumb_link}}')"></span>
+									</span>
+									<span class="row-item row-item--alignMiddle text--secondary text--small">Organized by {{name}}</span>
+								</span>
+								{{/organizer}}
+
+							</span>
+							{{#if photos}}
+							<span class="spreadable-item spreadable-item--shrink">
+								<span class="chunk attachment">
+									<span class="row mugPhotos">
+										<span class="row-item imgFill mugPhotos--lg" style="background-image:url('{{photos[0].photo_link}}')"></span>
+										<span class="row-item row-item--shrink column mugPhotos--sm">
+											<span class="chunk imgFill column-item" style="background-image:url('{{photos[1].photo_link}}')"></span>
+											<span class="imgFill column-item" style="background-image:url('{{photos[2].photo_link}}')"></span>
+										</span>
+									</span>
+								</span>
+							</span>
+							{{/if}}
 						</span>
 
-						<span class="row-item">
-
-							<span class="spreadable atLarge_spreadable--spread">
-								<span class="spreadable-item attachment">
-									<span class="text--bold display--block">{{name}}</span>
-									<span class="text--secondary text--small chunk">{{helpers.numberFormat(members)}} {{who}} in <a href="#" class="link">{{city}}, {{^state}}{{country}}{{/state}}{{#state}}{{state}}{{/state}}</a></span>
-
-									{{#organizer}}
-									<span class="row display--none atLarge_display--block chunk">
-										<span class="row-item row-item--shrink row-item--alignMiddle" style="padding-left: 0;">
-											<span class="avatar avatar--person avatar--small" style="background-image: url('{{photo.thumb_link}}')"></span>
-										</span>
-										<span class="row-item row-item--alignMiddle text--secondary text--small">Organized by {{name}}</span>
-									</span>
-									{{/organizer}}
-
-								</span>
-								{{#if photos}}
-								<span class="spreadable-item spreadable-item--shrink">
-									<span class="chunk attachment">
-										<span class="row mugPhotos">
-											<span class="row-item imgFill mugPhotos--lg" style="background-image:url('{{photos[0].photo_link}}')"></span>
-											<span class="row-item row-item--shrink column mugPhotos--sm">
-												<span class="chunk imgFill column-item" style="background-image:url('{{photos[1].photo_link}}')"></span>
-												<span class="imgFill column-item" style="background-image:url('{{photos[2].photo_link}}')"></span>
-											</span>
-										</span>
-									</span>
-								</span>
-								{{/if}}
+						<span class="row display--block atLarge_display--none attachment chunk">
+							<span class="row-item row-item--shrink row-item--alignMiddle" style="padding-left: 0;">
+								<span class="avatar avatar--person avatar--small" style="background-image: url('{{organizer.photo.thumb_link}}')"></span>
 							</span>
-
-							<span class="row display--block atLarge_display--none attachment chunk">
-								<span class="row-item row-item--shrink row-item--alignMiddle" style="padding-left: 0;">
-									<span class="avatar avatar--person avatar--small" style="background-image: url('{{organizer.photo.thumb_link}}')"></span>
-								</span>
-								<span class="row-item row-item--alignMiddle text--secondary text--small">Organized by {{organizer.name}}</span>
-							</span>
-
+							<span class="row-item row-item--alignMiddle text--secondary text--small">Organized by {{organizer.name}}</span>
 						</span>
 
 					</span>
-				</a></li>
-				{{/each}}
-			</ul>
+
+				</span>
+			</a></li>
+			{{/each}}
+		</ul>
+		<div class="chunk align--center">
+			<a class="button button--bordered" href="#">Show more</a>
 		</div>
-	</section>
+
+	</div></section>
 </script>
 
 <script id="changeTopic" type="text/template">
 	<section class="stripe stripe--collection"><div class="bounds">
 		<div class="chunk">
-			<label for="topic-search" class="visibility--a11yHide">Search for an interest</label>
+			<label for="topic-search" class="visibility--a11yHide">Search for a topic</label>
 			<input class="input--withIcon" id="topic-search" type="text" placeholder="Hiking" on-keyup="topicFuzzySearch" style="background-image:url('assets/img/magnifying-glass.svg')" />
 		</div>
 	</div></section>
 
 	<section class="stripe"><div class="bounds">
-		<h3 class="text--bold chunk">Suggestions</h3>
-		<ul class="list">
-			{{#each sugTopics:i}}
-				<li class="list-item"><a href="/?topic={{sugTopics[i].best_topics[0].urlkey}}" class="chunk" title="{{sugTopics[i].best_topics[0].name}}">{{sugTopics[i].best_topics[0].name}}</a></li>
-			{{/each}}
-		</ul>
+
+		<div id="suggestedTopicArea">
+			<h3 class="text--bold chunk">Suggestions</h3>
+			<ul class="list">
+				{{#each sugTopics:i}}
+					<li class="list-item"><a href="/?topic={{sugTopics[i].best_topics[0].urlkey}}" class="chunk" title="{{sugTopics[i].best_topics[0].name}}">{{sugTopics[i].best_topics[0].name}}</a></li>
+				{{/each}}
+			</ul>
+		</div>
+
+		<div class="display--none" id="loadingResults">
+			<div class="endlessLoader"></div>
+		</div>
+		<div class="display--none" id="noResults">
+			<p class="chunk">Sorry, we couldn't find any topics matching 'search string'</p>
+		</div>
+		<div class="display--none" id="results">
+			<p class="chunk">Search results show here</p>
+			<!-- <ul class="list">
+				<li class="list-item"><a href="/?topic=hiking" class="chunk" title="Hiking">Hiking</a></li>
+				<li class="list-item"><a href="/?topic=spirituality" class="chunk" title="Hikes with Dogs">Hikes with Dogs</a></li>
+				<li class="list-item"><a href="/?topic=screenwriters" class="chunk" title="Outdoors and Hiking">Outdoors and Hiking</a></li>
+				<li class="list-item"><a href="/?topic=leadership" class="chunk" title="Urban Hiking">Urban Hiking</a></li>
+				<li class="list-item"><a href="/?topic=fashion-entrepreneurs-sharing-successful-secrets" class="chunk" title="Hiking with Friends">Hiking with Friends</a></li>
+				<li class="list-item"><a href="/?topic=dance-lessons" class="chunk" title="Hiking Singles">Hiking Singles</a></li>
+			</ul> -->
+		</div>
+
 	</div></section>
 </script>
 

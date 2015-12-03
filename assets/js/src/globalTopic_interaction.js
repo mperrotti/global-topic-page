@@ -2,9 +2,36 @@
 // Fake topic search
 //
 function topicFuzzySearch(event) {
-	if (event.original.keyCode === 13) {
-		console.log('show some topix');
+	var sugTopicArea = document.getElementById('suggestedTopicArea'),
+			searchResults = document.getElementById('results');
+
+	if (event.original.keyCode === 13 || event.node.value.length >= 2) {
+
+		// hide suggested topics
+		if (sugTopicArea.classList)
+			sugTopicArea.classList.add('display--none');
+		else
+			sugTopicArea.className += ' ' + 'display--none';
+
+		// wait 250ms, then show loader until API responds
+
+		// API responded
+			// if there are results, show them
+			if (searchResults.classList)
+				searchResults.classList.remove('display--none');
+			else
+				searchResults.className = searchResults.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+
+
+			// else, show empty state
+
+	} else {
+		if (sugTopicArea.classList)
+			sugTopicArea.classList.remove('display--none');
+		else
+			sugTopicArea.className = sugTopicArea.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
 	}
+
 }
 
 //
@@ -21,14 +48,4 @@ function loadMap() {
 	} else {
 		console.log('map not yet loaded');
 	}
-}
-
-function testJoin(event) {
-	//console.log($(event.node).find('.join-icon-container'));
-if ($(event.original.target).parents('.js-join-icon-container').length) {
-	event.original.preventDefault();
-	console.log('is icon');
-} else {
-	console.log('is not icon');
-}
 }
