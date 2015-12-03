@@ -55,9 +55,12 @@ $dotTimeBase: 500;
 //
 // PAGE-SPECIFIC
 //
-.primaryTopic {
+.titleFilter {
 	border-bottom: 2px solid $C_link;
-	margin-bottom: $space-half;
+	margin-bottom: $space-quarter;
+	& + span {
+		margin: 0 $space-half;
+	}
 }
 
 .toggleButton--follow .toggleButton-label {
@@ -73,6 +76,7 @@ $dotTimeBase: 500;
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: 1100px 333px;
+	border-radius: 3px;
 }
 
 .mugPhotos {
