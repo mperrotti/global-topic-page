@@ -30,34 +30,32 @@
 
 </head>
 
-<body>
+<body class="hide-view-head">
 
 <script type="text/template" id="main-template">
-	<section class="stripe stripe--hero" id="map">
-		<div class="bounds stripe-heroContent"></div>
+	<section class="stripe stripe--hero inverted">
+		<div class="bounds stripe-heroContent">
+
+			<h1 class="text--display display--inlineBlock primaryTopic">
+				<a href="#!/change-topic">Hiking {{{helpers.svgIcon('chevronDown')}}}</a>
+			</h1>
+			<p class="matchLineHeight"><strong>7,046</strong> groups with <strong>5.4M</strong> members</p>
+
+			<div class="toggleButton toggleButton--lg toggleButton--follow">
+				<input type="checkbox" class="toggleButton-input" name="follow-topic" id="follow-topic" value="FollowTopic">
+				<label for="follow-topic" class="toggleButton-label">
+					<span class="follow-active">
+						{{{helpers.svgIcon('check', 'valign--middle')}}} <span class="display--none atMedium_display--inline valign--middle">Following</span>
+					</span>
+					<span class="follow-inactive">
+						{{{helpers.svgIcon('plus', 'valign--middle')}}} <span class="display--none atMedium_display--inline valign--middle">Follow</span>
+					</span>
+				</label>
+			</div>
+
+		</div>
 	</section>
 	<section class="stripe"><div class="bounds">
-		<div class="row chunk">
-			<div class="row-item">
-				<h1 class="text--display display--inlineBlock primaryTopic">
-					<a href="#!/change-topic">Hiking {{{helpers.svgIcon('chevronDown')}}}</a>
-				</h1>
-				<p class="matchLineHeight"><strong>7,046</strong> groups with <strong>5.4M</strong> members</p>
-			</div>
-			<div class="row-item row-item--shrink">
-				<div class="toggleButton toggleButton--lg toggleButton--follow">
-					<input type="checkbox" class="toggleButton-input" name="follow-topic" id="follow-topic" value="FollowTopic">
-					<label for="follow-topic" class="toggleButton-label">
-						<span class="follow-active">
-							{{{helpers.svgIcon('check', 'valign--middle')}}} <span class="display--none atMedium_display--inline valign--middle">Following</span>
-						</span>
-						<span class="follow-inactive">
-							{{{helpers.svgIcon('plus', 'valign--middle')}}} <span class="display--none atMedium_display--inline valign--middle">Follow</span>
-						</span>
-					</label>
-				</div>
-			</div>
-		</div>
 		<div class="runningText chunk">
 			<p>Meet other local hiking enthusiasts. All those who are dedicated to hiking excursions near and far, with a focus on leaving no trace of litter on our lands!</p>
 		</div>

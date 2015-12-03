@@ -34,6 +34,8 @@ function topicFuzzySearch(event) {
 
 }
 
+/*
+
 //
 // Mapbox code
 //
@@ -49,3 +51,5 @@ function loadMap() {
 		console.log('map not yet loaded');
 	}
 }
+
+*/

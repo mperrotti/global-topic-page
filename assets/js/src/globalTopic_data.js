@@ -37,6 +37,7 @@ var views = new ViewManager(function(){
 
 		console.log(views.data);
 
+		/*
 		//
 		// TODO: Get this code to fire ONLY when the template is rendered. This is sloppy
 		//
@@ -44,6 +45,7 @@ var views = new ViewManager(function(){
 		var map = L.mapbox.map('map', 'mapbox.streets').setView([lat, lon], 4);
 		map.scrollWheelZoom.disable();
 		//
+		*/
 
 	});
 
