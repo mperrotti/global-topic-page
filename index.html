@@ -33,7 +33,7 @@
 <body>
 
 <script type="text/template" id="main-template">
-	<section class="stripe stripe--hero" id="map">
+	<section class="stripe stripe--hero" id="map" style="background-image: url('http://placehold.it/3500x1500');">
 		<div class="bounds stripe-heroContent"></div>
 	</section>
 	<section class="stripe"><div class="bounds">
@@ -44,7 +44,7 @@
 					<span>Meetups in</span>
 					<a href="#!/change-location" class="titleFilter display--inlineBlock">Berlin {{{helpers.svgIcon('chevronDown')}}}</a>
 				</h1>
-				<p class="matchLineHeight"><strong>n</strong> members in <strong>y</strong> Meetup groups</p>
+				<p class="matchLineHeight"><strong>1,200</strong> members in <strong>50</strong> Meetup groups</p>
 			</div>
 			<div class="row-item row-item--shrink">
 				<div class="toggleButton toggleButton--lg toggleButton--follow">
@@ -78,8 +78,8 @@
 			<a href="http://www.meetup.com/find/?allMeetups=false&keywords=hiking&radius=5&userFreeform=Berlin&mcId=c1007698&change=yes&sort=default" class="link display--none atMedium_display--block">53 Meetups</a>
 		</div>
 		<ul class="gridList gridList--has1 atMedium_gridList--has2 atLarge_gridList--has3">
-		{{#localGroups}}
-			<li {{#if i>3}}class="display--none atLarge_display--inlineBlock"{{/if}}>
+		{{#each localGroups:i}}
+			<li {{#if i>2}}class="display--inlineBlock atLarge_display--none"{{/if}}>
 				<a href="{{link}}" class="card card--group inverted" style="background-image: url({{photo}});">
 					<div class="card--group-content">
 						<h4 class="text--bold">{{name}}</h4>
@@ -93,7 +93,7 @@
 					</a>
 				{{/events}}
 			</li>
-		{{/localGroups}}
+		{{/each}}
 		</ul>
 		<div class="inverted align--center padding--all chunk stripe--start">
 			<h3 class="text--display text--bold">312</h3>

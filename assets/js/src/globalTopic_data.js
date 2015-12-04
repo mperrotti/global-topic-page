@@ -19,7 +19,7 @@ var views = new ViewManager(function(){
 
 	// ↓ ↓ ↓ ↓ Where we pick which data we want ↓ ↓ ↓ ↓
 	var shoppingList = [
-		{"gimme": "groups", "key":"localGroups", "data": {"lat": lat, "lon": lon, "topic": topic, "page": 3}, "children": [
+		{"gimme": "groups", "key":"localGroups", "data": {"lat": lat, "lon": lon, "topic": topic, "page": 4}, "children": [
 			{"gimme": "events", "data": {"page": 1}, "match": [ ["id", "group_id"] ] }
 		]},
 		{"gimme": "groups", "key":"globalGroups", "data": {"topic": topic, "page": 10, "zip": ""}},
