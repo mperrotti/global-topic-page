@@ -58,9 +58,11 @@ $dotTimeBase: 500;
 .titleFilter {
 	border-bottom: 2px solid $C_link;
 	margin-bottom: $space-quarter;
-	& + span {
-		margin: 0 $space-half;
+
+	&:first-child, & + span  {
+		margin-right: $space-half;
 	}
+
 }
 
 .toggleButton--follow .toggleButton-label {

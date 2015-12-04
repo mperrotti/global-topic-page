@@ -41,7 +41,7 @@ var views = new ViewManager(function(){
 		// TODO: Get this code to fire ONLY when the template is rendered. This is sloppy
 		//
 		L.mapbox.accessToken = 'pk.eyJ1IjoibXBlcnJvdHRpIiwiYSI6ImNpaGpyOWZpdDBuZ2p0cGx6bnFoZWpyc2MifQ.i1DaUuwQ2EdEGmGqQcuTyw';
-		var map = L.mapbox.map('map', 'mapbox.streets').setView([lat, lon], 4);
+		var map = L.mapbox.map('map', 'mapbox.streets').setView([lat, lon], 7);
 		map.scrollWheelZoom.disable();
 		//
 

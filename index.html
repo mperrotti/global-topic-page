@@ -41,7 +41,7 @@
 			<div class="row-item">
 				<h1 class="text--headline text--bold display--inlineBlock">
 					<a href="#!/change-topic" class="titleFilter display--inlineBlock">Hiking {{{helpers.svgIcon('chevronDown')}}}</a>
-					<span>in</span>
+					<span>Meetups in</span>
 					<a href="#!/change-location" class="titleFilter display--inlineBlock">Berlin {{{helpers.svgIcon('chevronDown')}}}</a>
 				</h1>
 				<p class="matchLineHeight"><strong>n</strong> members in <strong>y</strong> Meetup groups</p>
@@ -64,10 +64,10 @@
 			<p>Meet other local hiking enthusiasts. All those who are dedicated to hiking excursions near and far, with a focus on leaving no trace of litter on our lands!</p>
 		</div>
 		<div class="chunk">
-			<ul class="inlineblockList buttonList--small">
-					<h3 class="text--bold text--secondary display--inlineBlock padding--right matchLineHeight">Related: </h3> <!-- TODO:  Fix this before anybody sees it -->
+			<ul class="inlineblockList">
+					<h3 class="display--inlineBlock matchLineHeight">Related topics: </h3> <!-- TODO:  Fix this before anybody sees it -->
 				{{#relatedTopics}}{{#data}}
-					<li><a href="/?topic={{urlkey}}" class="button button--small button--bordered" title="{{name}}">{{name}}</a></li>
+					<li><a href="/?topic={{urlkey}}" class="link" title="{{name}}">{{name}}</a> &middot;</li>
 				{{/data}}{{/relatedTopics}}
 			</ul>
 		</div>
@@ -95,13 +95,13 @@
 			</li>
 		{{/localGroups}}
 		</ul>
-		<div class="chunk align--center display--block atMedium_display--none">
-			<a class="button button--bordered" href="#">Show more</a>
-		</div>
 		<div class="inverted align--center padding--all chunk stripe--start">
 			<h3 class="text--display text--bold">312</h3>
-			<p class="chunk">People nearby are interested in Hiking</p>
+			<p class="chunk">People near Berlin are interested in Hiking</p>
 			<a href="#" class="button button--primary">Start your own Meetup</a>
+		</div>
+		<div class="chunk align--center display--block atMedium_display--none">
+			<a href="http://www.meetup.com/find/?allMeetups=false&keywords=hiking&radius=5&userFreeform=Berlin&mcId=c1007698&change=yes&sort=default" class="link">See all 53 Meetups near you</a>
 		</div>
 	</div></section>
 
@@ -208,6 +208,12 @@
 			</ul> -->
 		</div>
 
+	</div></section>
+</script>
+
+<script id="changeLocation" type="text/template">
+	<section class="stripe"><div class="bounds">
+		<p class="chunk">location change interface here</p>
 	</div></section>
 </script>
 

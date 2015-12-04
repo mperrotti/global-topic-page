@@ -43,7 +43,7 @@ function loadMap() {
 	//
 	if ($('#map').length){
 		L.mapbox.accessToken = 'pk.eyJ1IjoibXBlcnJvdHRpIiwiYSI6ImNpaGpyOWZpdDBuZ2p0cGx6bnFoZWpyc2MifQ.i1DaUuwQ2EdEGmGqQcuTyw';
-		var map = L.mapbox.map('map', 'mapbox.streets').setView([views.data.lat, views.data.lon], 4);
+		var map = L.mapbox.map('map', 'mapbox.streets').setView([views.data.lat, views.data.lon], 7);
 		map.scrollWheelZoom.disable();
 	} else {
 		console.log('map not yet loaded');

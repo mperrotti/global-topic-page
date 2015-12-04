@@ -29,8 +29,7 @@ router.add('', function(context){ // homepage
 		},
 		header : {
 			title: 'Hiking Meetups',
-			buttons: [
-			]
+			subtitle: 'Global > Germany > Berlin'
 		}
 	});
 
@@ -54,6 +53,20 @@ router.add('change-topic', function(context){ //photo view
 		},
 		header : {
 			title: 'Browse topics'
+		}
+	});
+});
+
+router.add('change-location', function(context){ //photo view
+	views.modal_show({
+		template: 'changeLocation',
+		events: {
+			//"topicFuzzySearch" : topicFuzzySearch
+		},
+		observe: {
+		},
+		header : {
+			title: 'Change location'
 		}
 	});
 });
