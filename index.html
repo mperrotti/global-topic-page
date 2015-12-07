@@ -110,8 +110,8 @@
 		<h2 class="text--headline align--center chunk">Largest Hiking Meetups</h2>
 
 		<ul>
-			{{#each globalGroups:i}}
-			<li class="chunk"><a href="#">
+			{{#each largestLocalGroups:i}}
+			<li class="chunk {{#if i>9}}display--none{{/if}}"><a href="{{link}}">
 
 				<span class="row">
 
@@ -165,7 +165,8 @@
 			{{/each}}
 		</ul>
 		<div class="chunk align--center">
-			<a class="button button--bordered" href="#">Show more</a>
+			<a class="button button--bordered" on-click="moreLargest" href="#">Show more</a>
+			<div class="endlessLoader display--none"></div>
 		</div>
 
 	</div></section>
@@ -212,9 +213,35 @@
 </script>
 
 <script id="changeLocation" type="text/template">
-	<section class="stripe"><div class="bounds">
-		<p class="chunk">location change interface here</p>
+	<section class="stripe stripe--collection"><div class="bounds">
+		<div class="chunk">
+			<label for="topic-search" class="visibility--a11yHide">Search for a city</label>
+			<input class="input--withIcon" id="topic-search" type="text" placeholder="Search for a city" on-keyup="cityFuzzySearch" style="background-image:url('assets/img/magnifying-glass.svg')" />
+		</div>
 	</div></section>
+
+	<section class="stripe js-locationList"><div class="bounds">
+		<ul class="list chunk">
+			<li class="list-item"><a href="#new-location" class="chunk link" title="new location">Worldwide</a></li>
+			<li class="list-item"><a href="#new-location" class="chunk link" title="new location">Germany</a></li>
+			<li class="list-item"><a href="#new-location" class="chunk link text--bold" title="new location">Berlin</a></li>
+		</ul>
+	</div></section>
+	<section class="stripe js-locationList"><div class="bounds">
+		<h3 class="text--bold chunk">Nearby cities</h3>
+		<ul class="list chunk">
+			<li class="list-item"><a href="#new-location" class="chunk link" title="new location">Charlottenberg</a></li>
+			<li class="list-item"><a href="#new-location" class="chunk link" title="new location">Wilmersdorf</a></li>
+			<li class="list-item"><a href="#new-location" class="chunk link" title="new location">Potsdam</a></li>
+			<li class="list-item"><a href="#new-location" class="chunk link" title="new location">Bradenberg</a></li>
+			<li class="list-item"><a href="#new-location" class="chunk link" title="new location">Dresden</a></li>
+		</ul>
+	</div></section>
+
+	<section class="stripe" id="cityResults"><div class="bounds">
+		<p class="chunk">Search results show here</p>
+	</div></section>
+
 </script>
 
 <!-- SVG icons -->

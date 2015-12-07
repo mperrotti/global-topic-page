@@ -23,7 +23,8 @@ router.add('', function(context){ // homepage
 	views.show({
 		template: 'main-template',
 		events: {
-			"loadMap" : loadMap()
+			"loadMap" : loadMap(),
+			"moreLargest": moreLargest
 		},
 		observe: {
 		},
@@ -61,7 +62,7 @@ router.add('change-location', function(context){ //photo view
 	views.modal_show({
 		template: 'changeLocation',
 		events: {
-			//"topicFuzzySearch" : topicFuzzySearch
+			"cityFuzzySearch" : cityFuzzySearch
 		},
 		observe: {
 		},
