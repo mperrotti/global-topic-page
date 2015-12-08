@@ -25,6 +25,10 @@ Message me if you have issues.
   * Wait 250ms before showing [loading state](http://mperrotti.com/temp_storage/TopicSearch_loading.png)
 * If no results are returned, show [empty state] (http://mperrotti.com/temp_storage/TopicSearch_empty.png)
 
+### Global MUGs
+* Clicking anywhere except the linked city name takes the user to the MUG
+* Clicking the linked city name takes the user to the /find page, scoped to that city
+
 ## Preview different data in the prototype
 * passing `?topic={topic-shortname}` will show data about another topic
 * passing `?lat={latCoord}&lon={lonCoord}` should change the map and content the "Nearby Meetups" stripe
