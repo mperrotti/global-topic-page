@@ -8,8 +8,8 @@ Message me if you have issues.
 * When scoped to city: [Mapbox](https://www.mapbox.com/) zoom level 7 with selected city as center point
 
 ### Meetup group grid functionality
-* If the user is scoped to a city, put the Meetup group grid inside of the top stripe
-* If the user is scoped to country or wider, make the Meetup group grid it's own stripe
+* If the user is scoped to a city, put the Meetup group grid [inside of the top stripe](http://mperrotti.com/temp_storage/LocalMeetups_city.png)
+* If the user is scoped to country or wider, make the Meetup group grid [it's own stripe](http://mperrotti.com/temp_storage/LocalMeetups_worldwide.png)
 * Show these groups in order of activity
 * If there are 4 or more MUGs within 100 miles, show 4 MUGs
 * If there are <4 MUGs within 100 miles, show alternative layout:
