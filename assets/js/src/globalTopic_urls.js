@@ -23,14 +23,14 @@ router.add('', function(context){ // homepage
 	views.show({
 		template: 'main-template',
 		events: {
-			"loadMap" : loadMap()
+			"loadMap" : loadMap(),
+			"moreLargest": moreLargest
 		},
 		observe: {
 		},
 		header : {
 			title: 'Hiking Meetups',
-			buttons: [
-			]
+			subtitle: 'Global > Germany > Berlin'
 		}
 	});
 
@@ -54,6 +54,20 @@ router.add('change-topic', function(context){ //photo view
 		},
 		header : {
 			title: 'Browse topics'
+		}
+	});
+});
+
+router.add('change-location', function(context){ //photo view
+	views.modal_show({
+		template: 'changeLocation',
+		events: {
+			"cityFuzzySearch" : cityFuzzySearch
+		},
+		observe: {
+		},
+		header : {
+			title: 'Change location'
 		}
 	});
 });
