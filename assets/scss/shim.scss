@@ -37,15 +37,6 @@
 	z-index: map-get($zindex-map, "modal");
 }
 
-.view-body {
-	.stripe:first-child {
-		padding-top: $view-head-height;
-		@include atMediaUp(large){
-			padding-top: $view-head-height-tablet;
-		}
-	}
-}
-
 .shade {
 	height: 100%;
 	left: 0;

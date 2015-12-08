@@ -1,0 +1,31 @@
+<div class="row chunk">
+	<h1 class="row-item text--display text--bold matchLineHeight">
+		<a href="#!/change-topic" class="titleFilter display--inlineBlock">Hiking {{{helpers.svgIcon('chevronDown')}}}</a>
+	</h1>
+	<div class="row-item row-item--shrink row-item--alignMiddle">
+		<div class="toggleButton toggleButton--lg toggleButton--follow">
+			<input type="checkbox" class="toggleButton-input" name="follow-topic" id="follow-topic" value="FollowTopic">
+			<label for="follow-topic" class="toggleButton-label">
+				<span class="follow-active">
+					{{{helpers.svgIcon('check', 'valign--middle')}}} <span class="valign--middle">Following</span>
+				</span>
+				<span class="follow-inactive">
+					{{{helpers.svgIcon('plus', 'valign--middle')}}} <span class="valign--middle">Follow</span>
+				</span>
+			</label>
+		</div>
+	</div>
+</div>
+
+<div class="runningText chunk">
+	<p class="chunk"><span class="display--inlineBlock"><strong>1,200</strong> members</span> <span class="display--inlineBlock">in <strong>50</strong> Meetup groups</span></p>
+	<p>Meet other local hiking enthusiasts. All those who are dedicated to hiking excursions near and far, with a focus on leaving no trace of litter on our lands!</p>
+</div>
+<div class="chunk">
+	<ul class="inlineblockList">
+			<h3 class="display--inlineBlock matchLineHeight">Related topics: </h3> <!-- TODO:  Fix this before anybody sees it -->
+		{{#relatedTopics}}{{#data}}
+			<li><a href="/?topic={{urlkey}}" class="link" title="{{name}}">{{name}}</a> &middot;</li>
+		{{/data}}{{/relatedTopics}}
+	</ul>
+</div>

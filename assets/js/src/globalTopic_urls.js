@@ -23,7 +23,7 @@ router.add('', function(context){ // homepage
 	views.show({
 		template: 'main-template',
 		events: {
-			"loadMap" : loadMap(),
+			"renderNavigation": renderNavigation(),
 			"moreLargest": moreLargest
 		},
 		observe: {

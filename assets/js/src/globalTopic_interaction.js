@@ -1,6 +1,15 @@
 //
 // Fake topic search
 //
+function renderNavigation() {
+	if ($('.mainNav').length < 1) {
+		views.nav_show({
+			"loggedIn": true,
+			"isModern": false
+		});
+	}
+}
+
 function topicFuzzySearch(event) {
 	var sugTopicArea = document.getElementById('suggestedTopicArea'),
 			searchResults = document.getElementById('results');
@@ -81,20 +90,4 @@ function moreLargest(event) {
 	// show loader
 	// remove .display--none from list items
 	// hide loader
-}
-
-//
-// Mapbox code
-//
-function loadMap() {
-	//
-	// TODO: Get this code to fire ONLY when the template is rendered. This is sloppy
-	//
-	if ($('#map').length){
-		L.mapbox.accessToken = 'pk.eyJ1IjoibXBlcnJvdHRpIiwiYSI6ImNpaGpyOWZpdDBuZ2p0cGx6bnFoZWpyc2MifQ.i1DaUuwQ2EdEGmGqQcuTyw';
-		var map = L.mapbox.map('map', 'mapbox.streets').setView([views.data.lat, views.data.lon], 7);
-		map.scrollWheelZoom.disable();
-	} else {
-		console.log('map not yet loaded');
-	}
 }

@@ -36,6 +36,9 @@ var ViewManager = function(oninit) {
 	// System message
 	this._sysmsg = null;
 
+	// Nav
+	this._nav = null;
+
 	// not really a view, just an element
 	this._$shade = null;
 
@@ -257,24 +260,6 @@ ViewManager.prototype = {
 		var opts = opts || {};
 		this.momentary_hide();
 		this._momentary = new Momentary(opts);
-		// console.log('momentary_show');
-		// console.log(this._momentary);
-		var self = this;
-
-		// $(document).click(function(e) {
-		// 	var clickTarget = e.target,
-		// 			optsTarget = opts.$target,
-		// 			momentaryEl = self._momentary.$el;
-
-		// 	if (momentaryEl.is(clickTarget)||optsTarget.is(clickTarget) && self._momentary.$el.has(e.target).length === 0) {
-		// 		console.log('click is on momentary');
-		// 		return false;
-		// 	} else {
-		// 		self.momentary_hide();
-		// 		console.log('click is NOT on momentary');
-		// 	}
-		// });
-
 	},
 
 	momentary_hide: function() {
@@ -282,9 +267,6 @@ ViewManager.prototype = {
 			this._momentary.hide();
 			this._momentary = null;
 		}
-		// console.log('momentary_hide');
-		// console.log(this._momentary);
-
 		//this._momentary = null; // might need to put this in a callback
 	},
 
@@ -325,10 +307,15 @@ ViewManager.prototype = {
 		}
 	},
 
-  toast_show: function(opts){
-    var opts = opts || {};
-    this._toast = new Toast(opts);
-  },
+	toast_show: function(opts){
+		var opts = opts || {};
+		this._toast = new Toast(opts);
+	},
+
+	nav_show: function(opts) {
+		var opts = opts || {};
+		this._nav = new Nav(opts);
+	},
 
 	handle_modal_outclick: function(e) {
 		if (!this._modal.open) {
@@ -358,7 +345,6 @@ ViewManager.prototype = {
 			// if the target of the click isn't the container
 			// nor a descendant of the container
 			this.momentary_hide();
-			// console.log('handle_momentary_outclick');
 		}
 	},
 
