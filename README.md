@@ -36,3 +36,4 @@
 ## Preview different data in the prototype
 * passing `?topic={topic-shortname}` will show data about another topic
 * passing `?lat={latCoord}&lon={lonCoord}` should change the map and content the "Nearby Meetups" stripe
+** `_?zip=_` support coming soon

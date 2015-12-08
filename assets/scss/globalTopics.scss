@@ -9,7 +9,9 @@ $C_contentBGInvertedAccent: #180F3B;
 // TO BE CONSIDERED AS GLOBAL CHANGES
 //
 .runningText {
-	max-width: 40em;
+	p {
+		max-width: 40em;
+	}
 }
 
 .toggleButton--lg .toggleButton-label {
@@ -52,17 +54,18 @@ $dotTimeBase: 500;
 	width: $space-half;
 }
 
+.atLarge_margin--left {
+	@include atMediaUp(large) {
+		margin-left: $space;
+	}
+}
+
 //
 // PAGE-SPECIFIC
 //
 .titleFilter {
 	border-bottom: 2px solid $C_link;
-	margin-bottom: $space-quarter;
-
-	&:first-child, & + span  {
-		margin-right: $space-half;
-	}
-
+	margin-bottom: $space-half;
 }
 
 .toggleButton--follow .toggleButton-label {
@@ -79,6 +82,18 @@ $dotTimeBase: 500;
 	background-repeat: no-repeat;
 	background-size: 1100px 333px;
 	border-radius: 3px;
+	box-sizing: border-box;
+
+	// Funky layout stuff that might be fragile. Talk to Adam D
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+		@include atMediaUp(large) {
+			&.spreadable-item {
+					flex-basis: 33%;
+			}
+		}
 }
 
 .mugPhotos {
@@ -102,9 +117,16 @@ $dotTimeBase: 500;
 	width: $media-m;
 }
 
-.join-icon-container {
-	position: relative;
-	z-index: 999;
+.topicStats {
+	border-color: $C_border;
+	border-style: solid;
+	border-width: 0 0 0 1px;
+	margin-left: $space;
+}
+
+.icon--inlineBodyText {
+	height: $font-size;
+	width: $font-size;
 }
 
 //

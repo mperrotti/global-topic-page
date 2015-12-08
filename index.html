@@ -37,14 +37,11 @@
 		<div class="bounds stripe-heroContent"></div>
 	</section>
 	<section class="stripe"><div class="bounds">
-		<div class="row chunk">
+		<div class="row">
 			<div class="row-item">
 				<h1 class="text--headline text--bold display--inlineBlock">
 					<a href="#!/change-topic" class="titleFilter display--inlineBlock">Hiking {{{helpers.svgIcon('chevronDown')}}}</a>
-					<span>Meetups in</span>
-					<a href="#!/change-location" class="titleFilter display--inlineBlock">Berlin {{{helpers.svgIcon('chevronDown')}}}</a>
 				</h1>
-				<p class="matchLineHeight"><strong>1,200</strong> members in <strong>50</strong> Meetup groups</p>
 			</div>
 			<div class="row-item row-item--shrink">
 				<div class="toggleButton toggleButton--lg toggleButton--follow">
@@ -60,7 +57,15 @@
 				</div>
 			</div>
 		</div>
-		<div class="runningText chunk">
+		<div class="row chunk">
+			<div class="row-item row-item--shrink row-item--alignMiddle matchLineHeight">
+				{{{helpers.svgIcon('locationPin', 'valign--middle')}}}
+				<a href="#!/change-location" class="titleFilter display--inlineBlock text--bold">Berlin {{{helpers.svgIcon('chevronDown', 'icon--inlineBodyText')}}}</a>
+			</div>
+			<p class="row-item row-item--alignMiddle topicStats matchLineHeight"><span class="display--inlineBlock"><strong>1,200</strong> members</span> <span class="display--inlineBlock">in <strong>50</strong> Meetup groups</span></p>
+		</div>
+
+		<div class="runningText padding--top border--top chunk">
 			<p>Meet other local hiking enthusiasts. All those who are dedicated to hiking excursions near and far, with a focus on leaving no trace of litter on our lands!</p>
 		</div>
 		<div class="chunk">
@@ -71,39 +76,87 @@
 				{{/data}}{{/relatedTopics}}
 			</ul>
 		</div>
-	</div></section>
-	<section class="stripe"><div class="bounds">
+	{{#if geoScope == 'local'}}
+		<div class="spreadable atLarge_spreadable--spread">
+			<div class="spreadable-item">
+				<ul class="gridList gridList--has1 atMedium_gridList--has2">
+				{{#each localGroups:i}}
+					<li> <!--<li {{#if i>2}}class="display--inlineBlock atLarge_display--none"{{/if}}>-->
+						<a href="{{link}}" class="card card--group inverted" style="background-image: url({{photo}});">
+							<div class="card--group-content">
+								<h4 class="text--bold">{{name}}</h4>
+								<p>{{helpers.numberFormat(members)}} {{who}}</p>
+							</div>
+						</a>
+						<!--
+						{{#events}}
+							<a href="#">
+								<span class="text--small text--bold matchLineHeight">{{name}}</span>
+								<span class="text--small display--block matchLineHeight">{{helpers.dateFormat(time, "dddd, DD MMM [at] H:mm")}}</span>
+							</a>
+						{{/events}}
+						-->
+					</li>
+				{{/each}}
+				</ul>
+			</div>
+
+			<div class="spreadable-item spreadable-item--shrink atLarge_margin--left padding--all chunk inverted stripe--start">
+				<div class="align--center">
+					<h3 class="text--display text--bold">312</h3>
+					<p class="chunk">People near Berlin are interested in Hiking</p>
+					<a href="#" class="button button--primary">Start your own Meetup</a>
+				</div>
+			</div>
+		</div>
 		<div class="chunk align--center">
-			<h2 class="text--headline">Hiking Meetups near you</h2>
-			<a href="http://www.meetup.com/find/?allMeetups=false&keywords=hiking&radius=5&userFreeform=Berlin&mcId=c1007698&change=yes&sort=default" class="link display--none atMedium_display--block">53 Meetups</a>
+			<a href="http://www.meetup.com/find/?allMeetups=false&keywords=hiking&radius=5&userFreeform=Berlin&mcId=c1007698&change=yes&sort=default" class="link display--none atMedium_display--block">See more local Hiking Meetup groups</a>
 		</div>
-		<ul class="gridList gridList--has1 atMedium_gridList--has2 atLarge_gridList--has3">
-		{{#each localGroups:i}}
-			<li {{#if i>2}}class="display--inlineBlock atLarge_display--none"{{/if}}>
-				<a href="{{link}}" class="card card--group inverted" style="background-image: url({{photo}});">
-					<div class="card--group-content">
-						<h4 class="text--bold">{{name}}</h4>
-						<p>{{helpers.numberFormat(members)}} {{who}}</p>
-					</div>
-				</a>
-				{{#events}}
-					<a href="#">
-						<span class="text--small text--bold matchLineHeight">{{name}}</span>
-						<span class="text--small display--block matchLineHeight">{{helpers.dateFormat(time, "dddd, DD MMM [at] H:mm")}}</span>
-					</a>
-				{{/events}}
-			</li>
-		{{/each}}
-		</ul>
-		<div class="inverted align--center padding--all chunk stripe--start">
-			<h3 class="text--display text--bold">312</h3>
-			<p class="chunk">People near Berlin are interested in Hiking</p>
-			<a href="#" class="button button--primary">Start your own Meetup</a>
-		</div>
-		<div class="chunk align--center display--block atMedium_display--none">
-			<a href="http://www.meetup.com/find/?allMeetups=false&keywords=hiking&radius=5&userFreeform=Berlin&mcId=c1007698&change=yes&sort=default" class="link">See all 53 Meetups near you</a>
-		</div>
+	{{/if}}
 	</div></section>
+	{{#if geoScope != 'local'}}
+		<section class="stripe"><div class="bounds">
+			<div class="chunk align--center">
+				<h2 class="text--headline">Hiking Meetups near you</h2>
+			</div>
+
+			<div class="spreadable atLarge_spreadable--spread">
+				<div class="spreadable-item">
+					<ul class="gridList gridList--has1 atMedium_gridList--has2">
+					{{#each localGroups:i}}
+						<li> <!--<li {{#if i>2}}class="display--inlineBlock atLarge_display--none"{{/if}}>-->
+							<a href="{{link}}" class="card card--group inverted" style="background-image: url({{photo}});">
+								<div class="card--group-content">
+									<h4 class="text--bold">{{name}}</h4>
+									<p>{{helpers.numberFormat(members)}} {{who}}</p>
+								</div>
+							</a>
+							<!--
+							{{#events}}
+								<a href="#">
+									<span class="text--small text--bold matchLineHeight">{{name}}</span>
+									<span class="text--small display--block matchLineHeight">{{helpers.dateFormat(time, "dddd, DD MMM [at] H:mm")}}</span>
+								</a>
+							{{/events}}
+							-->
+						</li>
+					{{/each}}
+					</ul>
+				</div>
+
+				<div class="spreadable-item spreadable-item--shrink atLarge_margin--left padding--all chunk inverted stripe--start">
+					<div class="align--center">
+						<h3 class="text--display text--bold">312</h3>
+						<p class="chunk">People near Berlin are interested in Hiking</p>
+						<a href="#" class="button button--primary">Start your own Meetup</a>
+					</div>
+				</div>
+			</div>
+			<div class="chunk align--center">
+				<a href="http://www.meetup.com/find/?allMeetups=false&keywords=hiking&radius=5&userFreeform=Berlin&mcId=c1007698&change=yes&sort=default" class="link display--none atMedium_display--block">See more local Hiking Meetup groups</a>
+			</div>
+		</div></section>
+	{{/if}}
 
 	<section class="stripe"><div class="bounds">
 
@@ -238,7 +291,7 @@
 		</ul>
 	</div></section>
 
-	<section class="stripe" id="cityResults"><div class="bounds">
+	<section class="stripe display--none" id="cityResults"><div class="bounds">
 		<p class="chunk">Search results show here</p>
 	</div></section>
 

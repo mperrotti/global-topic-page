@@ -77,7 +77,7 @@ function cityFuzzySearch(event) {
 function moreLargest(event) {
 	event.original.preventDefault();
 
-	console.log('show more');
+	alert('show 10 more. coming soon to prototype');
 	// show loader
 	// remove .display--none from list items
 	// hide loader
