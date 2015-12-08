@@ -127,7 +127,7 @@
 						<span class="spreadable atLarge_spreadable--spread">
 							<span class="spreadable-item attachment">
 								<span class="text--bold display--block">{{name}}</span>
-								<span class="text--secondary text--small chunk">{{helpers.numberFormat(members)}} {{who}} in <a href="#" class="link">{{city}}, {{^state}}{{country}}{{/state}}{{#state}}{{state}}{{/state}}</a></span>
+								<span class="text--secondary text--small chunk">{{helpers.numberFormat(members)}} {{who}} in <a href="#" on-click="cityClick" data-city="{{city}}" class="link">{{city}}, {{^state}}{{country}}{{/state}}{{#state}}{{state}}{{/state}}</a></span>
 
 								{{#organizer}}
 								<span class="row display--none atLarge_display--block chunk">

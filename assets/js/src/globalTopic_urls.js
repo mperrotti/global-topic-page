@@ -24,7 +24,8 @@ router.add('', function(context){ // homepage
 		template: 'main-template',
 		events: {
 			"renderNavigation": renderNavigation(),
-			"moreLargest": moreLargest
+			"moreLargest": moreLargest,
+			"cityClick": cityClick
 		},
 		observe: {
 		},

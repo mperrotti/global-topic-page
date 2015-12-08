@@ -91,3 +91,9 @@ function moreLargest(event) {
 	// remove .display--none from list items
 	// hide loader
 }
+
+function cityClick(event) {
+	var cityName = event.node.dataset.city;
+	event.original.preventDefault();
+	alert('go to ' + cityName + ' Find page\nuntil we launch local topic pages');
+}
