@@ -1,7 +1,12 @@
-# Global Topic Page
+## Installing depends
+cd to whatever directory this is saved in, then run `npm install` followed by `bower update`, and finally `grunt build`
+Message me if you have issues.
+
+## Preview different data in the prototype
+* passing `?topic={topic-shortname}` will show data about another topic
+* passing `?lat={latCoord}&lon={lonCoord}` should change the map and content the "Nearby Meetups" stripe
 
 ## Notes from Mike
-
 ### Map parameters
 * When scoped to global or country: [Mapbox](https://www.mapbox.com/) zoom level 4 with selected city as center point
 * When scoped to city: [Mapbox](https://www.mapbox.com/) zoom level 7 with selected city as center point
@@ -12,9 +17,9 @@
 * Show these groups in order of activity
 * If there are 4 or more MUGs within 100 miles, show 4 MUGs
 * If there are <4 MUGs within 100 miles, show alternative layout:
-** [3 Meetups](http://askMikeForMock.up)
-** [2 Meetups](http://askMikeForMock.up)
-** [1 Meetup](http://askMikeForMock.up)
+  * [3 Meetups](http://askMikeForMock.up)
+  * [2 Meetups](http://askMikeForMock.up)
+  * [1 Meetup](http://askMikeForMock.up)
 * If there are 0 MUGs within 100 miles, only show the start card [like so](http://askMikeForMock.up)
 * If there are 0 MUGs within 100 miles AND there are 0 people with topic within 50 miles, don't show local content
 
@@ -29,11 +34,10 @@
 ### Topic search logic - duplicate mobile /create functionality
 * When a user begins typing, clear out "Suggestions" content
 * When a user has typed 2 characters, begin returning results
-** Wait 250 ms before showing [loading state](http://askMikeForMock.up)
+  * Wait 250 ms before showing [loading state](http://askMikeForMock.up)
 * If no results are returned, show [empty state] (http://askMikeForMock.up)
-
 
 ## Preview different data in the prototype
 * passing `?topic={topic-shortname}` will show data about another topic
 * passing `?lat={latCoord}&lon={lonCoord}` should change the map and content the "Nearby Meetups" stripe
-** `_?zip=_` support coming soon
+  * `_?zip=_` support coming soon
