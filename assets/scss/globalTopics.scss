@@ -65,7 +65,6 @@ $dotTimeBase: 500;
 //
 .titleFilter {
 	border-bottom: 2px solid $C_link;
-	margin-bottom: $space-half;
 }
 
 .toggleButton--follow .toggleButton-label {
@@ -120,8 +119,14 @@ $dotTimeBase: 500;
 .topicStats {
 	border-color: $C_border;
 	border-style: solid;
-	border-width: 0 0 0 1px;
-	margin-left: $space;
+	border-width: 1px 0 0 0;
+	margin: $space 0 0 0;
+	padding: $space 0 0 0;
+	@include atMediaUp(medium) {
+		border-width: 0 0 0 1px;
+		margin: 0 0 0 $space;
+		padding: 0 0 0 $space;
+	}
 }
 
 .icon--inlineBodyText {
