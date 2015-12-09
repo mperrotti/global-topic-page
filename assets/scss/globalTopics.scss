@@ -27,8 +27,19 @@ $C_contentBGInvertedAccent: #180F3B;
 	padding-left: $media-xs + $space;
 }
 
-.buttonList--small li {
-	padding-bottom: $space-half;
+.inlineBulletList li {
+
+	&:after {
+		content: '·';
+		padding-left: $space-half;
+	}
+
+	&:last-child {
+		&:after {
+			display: none;
+		}
+	}
+
 }
 
 .attachment .row-item:first-child {
