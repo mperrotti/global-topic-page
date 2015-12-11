@@ -23,8 +23,9 @@ router.add('', function(context){ // homepage
 	views.show({
 		template: 'main-template',
 		events: {
-			"loadMap" : loadMap(),
-			"moreLargest": moreLargest
+			"renderNavigation": renderNavigation(),
+			"moreLargest": moreLargest,
+			"cityClick": cityClick
 		},
 		observe: {
 		},

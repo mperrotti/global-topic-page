@@ -2,6 +2,7 @@
 @import '../../bower_components/sassquatch2/sass/globals';
 @import '../../bower_components/sassquatch2/sass/util';
 @import 'icons';
+@import 'nav';
 
 $C_contentBGInvertedAccent: #180F3B;
 
@@ -26,8 +27,19 @@ $C_contentBGInvertedAccent: #180F3B;
 	padding-left: $media-xs + $space;
 }
 
-.buttonList--small li {
-	padding-bottom: $space-half;
+.inlineBulletList li {
+
+	&:after {
+		content: '·';
+		padding-left: $space-half;
+	}
+
+	&:last-child {
+		&:after {
+			display: none;
+		}
+	}
+
 }
 
 .attachment .row-item:first-child {
@@ -92,13 +104,6 @@ $dotTimeBase: 500;
 	border-bottom: 2px solid $C_link;
 }
 
-.toggleButton--follow .toggleButton-label {
-	padding: $space-half !important;
-	@include atMediaUp(medium) {
-		padding: $space-quarter $space-half !important;
-	}
-}
-
 .stripe--start {
 	background-image: url('../../assets/img/swarm.png');
 	background-color: $C_contentBGInvertedAccent;
@@ -141,19 +146,6 @@ $dotTimeBase: 500;
 	width: $media-m;
 }
 
-.topicStats {
-	border-color: $C_border;
-	border-style: solid;
-	border-width: 1px 0 0 0;
-	margin: $space 0 0 0;
-	padding: $space 0 0 0;
-	@include atMediaUp(medium) {
-		border-width: 0 0 0 1px;
-		margin: 0 0 0 $space;
-		padding: 0 0 0 $space;
-	}
-}
-
 .icon--inlineBodyText {
 	height: $font-size;
 	width: $font-size;
@@ -162,6 +154,10 @@ $dotTimeBase: 500;
 //
 // PROTOTYPE-SPEICIFIC
 //
+.hasNav #main_header {
+	display: none !important;
+}
+
 .toggleButton-input + .toggleButton-label {
 	.follow-inactive {
 		display: inline;
@@ -181,4 +177,8 @@ $dotTimeBase: 500;
 	.follow-active {
 		display: inline;
 	}
+}
+
+.faux-map {
+	max-width: 100%;
 }

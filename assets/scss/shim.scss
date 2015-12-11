@@ -35,12 +35,9 @@
 		@include modal-dialog;
 	}
 	z-index: map-get($zindex-map, "modal");
-}
-
-.view-body {
 	.stripe:first-child {
 		padding-top: $view-head-height;
-		@include atMediaUp(large){
+		@include atMediaUp(small){
 			padding-top: $view-head-height-tablet;
 		}
 	}
