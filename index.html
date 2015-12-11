@@ -162,9 +162,10 @@
 				<a href="{{link}}" class="align--left card card--group inverted" style="background-image: url({{^photo}}http://static2.meetupstatic.com/img/9634477557299433531/journey/simple/no_photo{{helpers.random(1,5)}}.png{{/photo}}{{#photo}}{{photo}}{{/photo}});">
 					<div class="card--group-content">
 						<h4 class="text--bold">{{name}}</h4>
-						<p>started {{helpers.dateRelative(created)}}</p>
+						<p>{{helpers.numberFormat(members)}} {{who}}</p>
 					</div>
 				</a>
+				<p class="text--small matchLineHeight">started {{helpers.dateRelative(created)}} in {{city}}, {{^state}}{{country}}{{/state}}{{#state}}{{state}}{{/state}}</p>
 			</li>
 		{{/newestGroups}}
 		</ul>
