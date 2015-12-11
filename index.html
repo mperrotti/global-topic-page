@@ -66,12 +66,12 @@
 		</div>
 	</div></section>
 
-	<section class="stripe"><div class="bounds bounds--wide align--center">
+	<section class="stripe"><div class="bounds align--center">
 		<div class="chunk">
 			<h2 class="text--headline">Hiking Meetups near you</h2>
 		</div>
 
-		<ul class="gridList gridList--has1 atMedium_gridList--has4">
+		<ul class="gridList gridList--has1 atMedium_gridList--has3">
 		{{#each localGroups:i}}
 			<li>
 				<a href="{{link}}" class="align--left card card--group inverted" style="background-image: url({{photo}});">
@@ -154,20 +154,40 @@
 
 	</div></section>
 
-	<section class="stripe"><div class="bounds bounds--wide">
+	<section class="stripe"><div class="bounds">
 		<h2 class="text--headline align--center chunk">Newest Hiking Meetups Worldwide</h2>
-		<ul class="gridList gridList--has1 atMedium_gridList--has3 atLarge_gridList--has4 chunk">
+		<ul class="gridList gridList--has1 atMedium_gridList--has3 chunk">
 		{{#newestGroups}}
 			<li>
 				<a href="{{link}}" class="align--left card card--group inverted" style="background-image: url({{^photo}}http://static2.meetupstatic.com/img/9634477557299433531/journey/simple/no_photo{{helpers.random(1,5)}}.png{{/photo}}{{#photo}}{{photo}}{{/photo}});">
 					<div class="card--group-content">
 						<h4 class="text--bold">{{name}}</h4>
-						<p>{{helpers.numberFormat(members)}} {{who}}</p>
+						<p>started {{helpers.dateRelative(created)}}</p>
 					</div>
 				</a>
 			</li>
 		{{/newestGroups}}
 		</ul>
+
+		<!-- <ul>
+		{{#newestGroups}}
+			<li class="chunk">
+				<a href="{{link}}" class="attachment">
+					<h4 class="text--bold">{{name}}</h4>
+					<span class="text--secondary text--small chunk">started {{helpers.dateRelative(created)}} in <a href="#" on-click="cityClick" data-city="{{city}}" class="link">{{city}}, {{^state}}{{country}}{{/state}}{{#state}}{{state}}{{/state}}</a></span>
+
+					{{#organizer}}
+					<span class="row display--none atLarge_display--block chunk">
+						<span class="row-item row-item--shrink row-item--alignMiddle" style="padding-left: 0;">
+							<span class="avatar avatar--person avatar--small" style="background-image: url('{{photo.thumb_link}}')"></span>
+						</span>
+						<span class="row-item row-item--alignMiddle text--secondary text--small">Organized by {{name}}</span>
+					</span>
+					{{/organizer}}
+				</a>
+			</li>
+		{{/newestGroups}}
+		</ul> -->
 	</div></section>
 
 	<footer class="stripe stripe--inverted inverted">

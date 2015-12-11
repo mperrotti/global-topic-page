@@ -20,11 +20,11 @@ var views = new ViewManager(function(){
 
 	// ↓ ↓ ↓ ↓ Where we pick which data we want ↓ ↓ ↓ ↓
 	var shoppingList = [
-		{"gimme": "groups", "key":"localGroups", "data": {"lat": lat, "lon": lon, "topic": topic, "page": 4}, "children": [
+		{"gimme": "groups", "key":"localGroups", "data": {"lat": lat, "lon": lon, "topic": topic, "page": 3}, "children": [
 			{"gimme": "events", "data": {"page": 1}, "match": [ ["id", "group_id"] ] }
 		]},
 		{"gimme": "groups", "key":"globalGroups", "data": {"topic": topic, "page": 20, "zip": ""}},
-		{"gimme": "groups", "key":"newestGroups", "data": {"topic": topic, "page": 12, "order": "id", "desc":true, "zip": ""}},
+		{"gimme": "groups", "key":"newestGroups", "data": {"topic": topic, "page": 6, "order": "id", "desc":true, "zip": ""}},
 		{"gimme": "topic_categories", "key":"sugTopics", "data": {"lat": lat, "lon": lon, "radius": 50}},
 		{"gimme": "recommended_topics", "key":"relatedTopics", "data": {"other_topics": topicID, "page": 10}}
 	];

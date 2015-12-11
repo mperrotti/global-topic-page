@@ -35,6 +35,12 @@
 		@include modal-dialog;
 	}
 	z-index: map-get($zindex-map, "modal");
+	.stripe:first-child {
+		padding-top: $view-head-height;
+		@include atMediaUp(small){
+			padding-top: $view-head-height-tablet;
+		}
+	}
 }
 
 .shade {
