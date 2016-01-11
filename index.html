@@ -34,44 +34,36 @@
 
 <script type="text/template" id="main-template">
 	<section class="stripe"><div class="bounds">
-		<div class="align--center chunk">
-			<h1 class="text--display text--bold chunk">
-				<a href="#!/change-topic" class="titleFilter display--inlineBlock">Hiking {{{helpers.svgIcon('chevronDown')}}}</a>
-			</h1>
-
-			<p class="chunk"><span class="display--inlineBlock"><strong>1,200</strong> members</span> <span class="display--inlineBlock">in <strong>50</strong> Meetup groups</span></p>
-
-			<div class="toggleButton toggleButton--lg toggleButton--follow">
-				<input type="checkbox" class="toggleButton-input" name="follow-topic" id="follow-topic" value="FollowTopic">
-				<label for="follow-topic" class="toggleButton-label">
-					<span class="follow-active">
-						{{{helpers.svgIcon('check', 'valign--middle')}}} <span class="valign--middle">Following</span>
-					</span>
-					<span class="follow-inactive">
-						{{{helpers.svgIcon('plus', 'valign--middle')}}} <span class="valign--middle">Follow</span>
-					</span>
-				</label>
+		<div class="spreadable atMedium_spreadable--spread">
+			<div class="spreadable-item valign--middle chunk">
+				<h1 class="text--headline text--bold align--center atMedium_align--left">
+					<a href="#!/change-topic" class="titleFilter display--inlineBlock">Hiking {{{helpers.svgIcon('chevronDown')}}}</a> Meetups near <a href="#!/change-location" class="titleFilter display--inlineBlock">Berlin {{{helpers.svgIcon('chevronDown')}}}</a>
+				</h1>
+				<!--<div class="toggleButton toggleButton--lg toggleButton--follow">
+					<input type="checkbox" class="toggleButton-input" name="follow-topic" id="follow-topic" value="FollowTopic">
+					<label for="follow-topic" class="toggleButton-label">
+						<span class="follow-active">
+							{{{helpers.svgIcon('check', 'valign--middle')}}} <span class="valign--middle">Following</span>
+						</span>
+						<span class="follow-inactive">
+							{{{helpers.svgIcon('plus', 'valign--middle')}}} <span class="valign--middle">Follow</span>
+						</span>
+					</label>
+				</div>-->
+			</div>
+			<div class="spreadable-item spreadable-item--shrink row chunk align--center atMedium_align--left">
+				<div class="row-item margin--right padding--top padding--bottom valign--middle">
+					<p class="text--bold">1,200</p>
+					<p>members</p>
+				</div>
+				<div class="row-item border--left padding--top padding--bottom valign--middle">
+					<p class="text--bold">22</p>
+					<p>Meetups</p>
+				</div>
 			</div>
 		</div>
 
-		<div class="runningText padding--top border--top chunk">
-			<p>Meet other local hiking enthusiasts. All those who are dedicated to hiking excursions near and far, with a focus on leaving no trace of litter on our lands!</p>
-		</div>
-		<div class="chunk">
-			<ul class="inlineblockList inlineBulletList">
-					<h3 class="display--inlineBlock matchLineHeight">Related topics: </h3> <!-- TODO:  Fix this before anybody sees it -->
-				{{#relatedTopics}}{{#data}}
-					<li><a href="/?topic={{urlkey}}" class="link" title="{{name}}">{{name}}</a></li>
-				{{/data}}{{/relatedTopics}}
-			</ul>
-		</div>
-	</div></section>
-	<section class="stripe"><div class="bounds">
-		<div class="chunk align--center">
-			<h2 class="text--headline">Hiking Meetups near you</h2>
-		</div>
-
-		<div class="spreadable atLarge_spreadable--spread">
+<div class="spreadable atLarge_spreadable--spread">
 			<div class="spreadable-item">
 				<ul class="gridList gridList--has1 atMedium_gridList--has2">
 				{{#each localGroups:i}}
@@ -103,14 +95,63 @@
 				</div>
 			</div>
 		</div>
+
+		<div class="runningText spreadable atMedium_spreadable--spread">
+			<p class="spreadable-item">Meet other local hiking enthusiasts. All those who are dedicated to hiking excursions near and far, with a focus on leaving no trace of litter on our lands!</p>
+			<div class="spreadable-item spreadable-item--shrink">
+				<a href="http://www.meetup.com/find/?allMeetups=false&keywords=hiking&radius=5&userFreeform=Berlin&mcId=c1007698&change=yes&sort=default" class="button button--bordered button--fullWidth button--small display--none atMedium_display--block"><span class="valign--middle">more local Meetups</span> {{{helpers.svgIcon('chevronRight', 'valign--middle')}}}</a>
+			</div>
+		</div>
+		<div class="chunk">
+			<ul class="inlineblockList inlineBulletList">
+					<h3 class="display--inlineBlock matchLineHeight text--bold">Related topics: </h3> <!-- TODO:  Fix this before anybody sees it -->
+				{{#relatedTopics}}{{#data}}
+					<li><a href="/?topic={{urlkey}}" class="link" title="{{name}}">{{name}}</a></li>
+				{{/data}}{{/relatedTopics}}
+			</ul>
+		</div>
+
+		<p class="padding--all align--center chunk" style="background: #f3f6f9; border: 1px solid rgba(0,0,0,.12)">Map goes here</p>
+
+	</div></section>
+
+	<!--<section class="stripe"><div class="bounds">
+		<div class="chunk align--center">
+			<h2 class="text--headline">Hiking Meetups near you</h2>
+		</div>
+
+		<div class="spreadable atLarge_spreadable--spread">
+			<div class="spreadable-item">
+				<ul class="gridList gridList--has1 atMedium_gridList--has2">
+				{{#each localGroups:i}}
+					<li>
+						<a href="{{link}}" class="card card--group inverted" style="background-image: url({{photo}});">
+							<div class="card--group-content">
+								<h4 class="text--bold">{{name}}</h4>
+								<p>{{helpers.numberFormat(members)}} {{who}}</p>
+							</div>
+						</a>
+					</li>
+				{{/each}}
+				</ul>
+			</div>
+
+			<div class="spreadable-item spreadable-item--shrink atLarge_margin--left padding--all chunk inverted stripe--start">
+				<div class="align--center">
+					<h3 class="text--display text--bold">312</h3>
+					<p class="chunk">People near Berlin are interested in Hiking</p>
+					<a href="#" class="button button--primary">Start your own Meetup</a>
+				</div>
+			</div>
+		</div>
 		<div class="chunk align--center">
 			<a href="http://www.meetup.com/find/?allMeetups=false&keywords=hiking&radius=5&userFreeform=Berlin&mcId=c1007698&change=yes&sort=default" class="link display--none atMedium_display--block">See more local Hiking Meetup groups</a>
 		</div>
-	</div></section>
+	</div></section>-->
 
 	<section class="stripe"><div class="bounds">
 
-		<h2 class="text--headline align--center chunk">Largest Hiking Meetups Worldwide</h2>
+		<h2 class="text--headline align--center chunk">Largest Hiking Meetups</h2>
 
 		<ul>
 			{{#each globalGroups:i}}
@@ -171,6 +212,23 @@
 			<a class="button button--bordered" on-click="moreLargest" href="#">Show more</a>
 			<div class="endlessLoader display--none"></div>
 		</div>
+
+	</div></section>
+
+	<section class="stripe"><div class="bounds">
+
+		<h2 class="text--headline align--center chunk">Newest Hiking Meetups</h2>
+
+		<ul class="gridList gridList--has1 atMedium_gridList--has3 chunk">
+			<li><a href="#" class="card card--group inverted" style="background-image: url(http://hiking.meetup.com/img/journey/simple/no_photo4.png);">
+				<span class="card--group-content">
+					<h4 class="text--bold">Group Name here</h4>
+					<p>123 Chapterwho</p>
+				</span>
+			</a>
+			<p class="text--small matchLineHeight">Started Jan 11 in Berlin, DE</p>
+		</li>
+		</ul>
 
 	</div></section>
 
