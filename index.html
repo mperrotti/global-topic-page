@@ -34,32 +34,19 @@
 
 <script type="text/template" id="main-template">
 	<section class="stripe"><div class="bounds">
-		<div class="spreadable atMedium_spreadable--spread">
-			<div class="spreadable-item valign--middle chunk">
-				<h1 class="text--headline text--bold align--center atMedium_align--left">
-					<a href="#!/change-topic" class="titleFilter display--inlineBlock">Hiking {{{helpers.svgIcon('chevronDown')}}}</a> Meetups near <a href="#!/change-location" class="titleFilter display--inlineBlock">Berlin {{{helpers.svgIcon('chevronDown')}}}</a>
-				</h1>
-				<!--<div class="toggleButton toggleButton--lg toggleButton--follow">
-					<input type="checkbox" class="toggleButton-input" name="follow-topic" id="follow-topic" value="FollowTopic">
-					<label for="follow-topic" class="toggleButton-label">
-						<span class="follow-active">
-							{{{helpers.svgIcon('check', 'valign--middle')}}} <span class="valign--middle">Following</span>
-						</span>
-						<span class="follow-inactive">
-							{{{helpers.svgIcon('plus', 'valign--middle')}}} <span class="valign--middle">Follow</span>
-						</span>
-					</label>
-				</div>-->
+		<div class="chunk">
+			<h1 class="text--headline text--bold align--center">
+				<a href="#!/change-topic" class="titleFilter display--inlineBlock">Hiking {{{helpers.svgIcon('chevronDown')}}}</a> Meetups near <a href="#!/change-location" class="titleFilter display--inlineBlock">Berlin {{{helpers.svgIcon('chevronDown')}}}</a>
+			</h1>
+		</div>
+		<div class="row row--center chunk align--center">
+			<div class="row-item row-item--shrink margin--right padding--top padding--bottom valign--middle">
+				<p class="text--bold">1,200</p>
+				<p>members</p>
 			</div>
-			<div class="spreadable-item spreadable-item--shrink row chunk align--center atMedium_align--left">
-				<div class="row-item margin--right padding--top padding--bottom valign--middle">
-					<p class="text--bold">1,200</p>
-					<p>members</p>
-				</div>
-				<div class="row-item border--left padding--top padding--bottom valign--middle">
-					<p class="text--bold">22</p>
-					<p>Meetups</p>
-				</div>
+			<div class="row-item row-item--shrink border--left padding--top padding--bottom valign--middle">
+				<p class="text--bold">22</p>
+				<p>Meetups</p>
 			</div>
 		</div>
 
@@ -216,19 +203,101 @@
 	</div></section>
 
 	<section class="stripe"><div class="bounds">
-
 		<h2 class="text--headline align--center chunk">Newest Hiking Meetups</h2>
-
 		<ul class="gridList gridList--has1 atMedium_gridList--has3 chunk">
-			<li><a href="#" class="card card--group inverted" style="background-image: url(http://hiking.meetup.com/img/journey/simple/no_photo4.png);">
-				<span class="card--group-content">
-					<h4 class="text--bold">Group Name here</h4>
-					<p>123 Chapterwho</p>
-				</span>
-			</a>
-			<p class="text--small matchLineHeight">Started Jan 11 in Berlin, DE</p>
-		</li>
+		{{#newestGroups}}
+			<li>
+				<a href="{{link}}" class="align--left card card--group inverted" style="background-image: url({{^photo}}http://static2.meetupstatic.com/img/9634477557299433531/journey/simple/no_photo{{helpers.random(1,5)}}.png{{/photo}}{{#photo}}{{photo}}{{/photo}});">
+					<div class="card--group-content">
+						<h4 class="text--bold">{{name}}</h4>
+						<p>{{helpers.numberFormat(members)}} {{who}}</p>
+					</div>
+				</a>
+				<p class="text--small matchLineHeight">started {{helpers.dateRelative(created)}} in {{city}}, {{^state}}{{country}}{{/state}}{{#state}}{{state}}{{/state}}</p>
+			</li>
+		{{/newestGroups}}
 		</ul>
+	</div></section>
+
+	<section class="stripe stripe--collection"><div class="bounds bounds--wide">
+		<div class="align--center chunk">
+			<h2 class="text--headline">Meetup in Berlin</h2>
+			<p>300,495 members in 1,720 Meetups</p>
+		</div>
+		<!-- if scope is LOCAL or COUNTRY -->
+		<div class="spreadable atMedium_spreadable--spread">
+			<div class="spreadable-item">
+				<h3 class="text--bold chunk">Most popular categories</h3>
+				<ul class="gridList gridList--has1 atMedium_gridList--has2 atLarge_gridList--has3">
+					<li>
+						<img src="assets/img/categories/artsculture.jpg" class="span--100" alt="">
+						<h3 class="text--bold">Category Name</h3>
+						<ul class="inlineblockList inlineblockList--bulleted display--none atMedium_display--block">
+							<li><a href="#" class="link text--small">Topic name</a></li>
+							<li><a href="#" class="link text--small">Topic name</a></li>
+							<li><a href="#" class="link text--small">Topic name</a></li>
+						</ul>
+					</li>
+					<li>
+						<img src="assets/img/categories/artsculture.jpg" class="span--100" alt="">
+						<h3 class="text--bold">Category Name</h3>
+						<ul class="inlineblockList inlineblockList--bulleted display--none atMedium_display--block">
+							<li><a href="#" class="link text--small">Topic name</a></li>
+							<li><a href="#" class="link text--small">Topic name</a></li>
+							<li><a href="#" class="link text--small">Topic name</a></li>
+						</ul>
+					</li>
+					<li>
+						<img src="assets/img/categories/artsculture.jpg" class="span--100" alt="">
+						<h3 class="text--bold">Category Name</h3>
+						<ul class="inlineblockList inlineblockList--bulleted display--none atMedium_display--block">
+							<li><a href="#" class="link text--small">Topic name</a></li>
+							<li><a href="#" class="link text--small">Topic name</a></li>
+							<li><a href="#" class="link text--small">Topic name</a></li>
+						</ul>
+					</li>
+					<li>
+						<img src="assets/img/categories/artsculture.jpg" class="span--100" alt="">
+						<h3 class="text--bold">Category Name</h3>
+						<ul class="inlineblockList inlineblockList--bulleted display--none atMedium_display--block">
+							<li><a href="#" class="link text--small">Topic name</a></li>
+							<li><a href="#" class="link text--small">Topic name</a></li>
+							<li><a href="#" class="link text--small">Topic name</a></li>
+						</ul>
+					</li>
+					<li>
+						<img src="assets/img/categories/artsculture.jpg" class="span--100" alt="">
+						<h3 class="text--bold">Category Name</h3>
+						<ul class="inlineblockList inlineblockList--bulleted display--none atMedium_display--block">
+							<li><a href="#" class="link text--small">Topic name</a></li>
+							<li><a href="#" class="link text--small">Topic name</a></li>
+							<li><a href="#" class="link text--small">Topic name</a></li>
+						</ul>
+					</li>
+					<li>
+						<img src="assets/img/categories/artsculture.jpg" class="span--100" alt="">
+						<h3 class="text--bold">Other categories</h3>
+					</li>
+				</ul>
+			</div>
+			<div class="spreadable-item">
+				<h3 class="text--bold chunk">Trending this month</h3>
+				<ul class="list">
+					<li class="list-item"><a href="#" class="link chunk">Topic name</a></li>
+					<li class="list-item"><a href="#" class="link chunk">Topic name</a></li>
+					<li class="list-item"><a href="#" class="link chunk">Topic name</a></li>
+					<li class="list-item"><a href="#" class="link chunk">Topic name</a></li>
+					<li class="list-item"><a href="#" class="link chunk">Topic name</a></li>
+					<li class="list-item"><a href="#" class="link chunk">Topic name</a></li>
+					<li class="list-item"><a href="#" class="link chunk">Topic name</a></li>
+					<li class="list-item"><a href="#" class="link chunk">Topic name</a></li>
+					<li class="list-item"><a href="#" class="link chunk">Topic name</a></li>
+					<li class="list-item"><a href="#" class="link chunk">Topic name</a></li>
+				</ul>
+			</div>
+		</div>
+
+		<!-- if scope is COUNTRY -->
 
 	</div></section>
 

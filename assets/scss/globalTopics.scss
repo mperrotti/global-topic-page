@@ -101,6 +101,10 @@ $dotTimeBase: 500;
 	border-left: 1px solid $C_border;
 }
 
+.span--100 {
+	width: 100%;
+}
+
 //
 // PAGE-SPECIFIC
 //
@@ -158,8 +162,19 @@ $dotTimeBase: 500;
 //
 // PROTOTYPE-SPEICIFIC
 //
-.hasNav .view-head {
-	display: none !important;
+.hasNav {
+	#main .view-head {
+		display: none !important;
+	}
+}
+
+.view--modal-snap {
+	.stripe:first-child {
+		padding-top: $view-head-height;
+		@include atMediaUp(medium) {
+			padding-top: $view-head-height-tablet;
+		}
+	}
 }
 
 .toggleButton-input + .toggleButton-label {
