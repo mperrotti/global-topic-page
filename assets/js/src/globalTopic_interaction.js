@@ -1,6 +1,15 @@
 //
 // Fake topic search
 //
+function renderNavigation() {
+	if ($('.mainNav').length < 1) {
+		views.nav_show({
+			"loggedIn": true,
+			"isModern": false
+		});
+	}
+}
+
 function topicFuzzySearch(event) {
 	var sugTopicArea = document.getElementById('suggestedTopicArea'),
 			searchResults = document.getElementById('results');
@@ -63,10 +72,12 @@ function cityFuzzySearch(event) {
 				// else, show empty state
 
 		} else {
-			if (cityPickerArea[i].classList)
+			if (cityPickerArea[i].classList) {
 				cityPickerArea[i].classList.remove('display--none');
-			else
+				searchResults.className += ' ' + 'display--none';
+			} else {
 				cityPickerArea[i].className = cityPickerArea[i].className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+			}
 		}
 	}
 }
@@ -83,18 +94,8 @@ function moreLargest(event) {
 	// hide loader
 }
 
-//
-// Mapbox code
-//
-function loadMap() {
-	//
-	// TODO: Get this code to fire ONLY when the template is rendered. This is sloppy
-	//
-	if ($('#map').length){
-		L.mapbox.accessToken = 'pk.eyJ1IjoibXBlcnJvdHRpIiwiYSI6ImNpaGpyOWZpdDBuZ2p0cGx6bnFoZWpyc2MifQ.i1DaUuwQ2EdEGmGqQcuTyw';
-		var map = L.mapbox.map('map', 'mapbox.streets').setView([views.data.lat, views.data.lon], 7);
-		map.scrollWheelZoom.disable();
-	} else {
-		console.log('map not yet loaded');
-	}
+function cityClick(event) {
+	var cityName = event.node.dataset.city;
+	event.original.preventDefault();
+	alert('go to ' + cityName + ' Find page\nuntil we launch local topic pages');
 }

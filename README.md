@@ -2,15 +2,7 @@
 cd to whatever directory this is saved in, then run `npm install` followed by `bower update`, and finally `grunt build`
 Message me if you have issues.
 
-## Notes from Mike
-### Map parameters
-* When scoped to global or country: [Mapbox](https://www.mapbox.com/) zoom level 4 with selected city as center point
-* When scoped to city: [Mapbox](https://www.mapbox.com/) zoom level 7 with selected city as center point
-
 ### Meetup group grid functionality
-* If the user is scoped to a city, put the Meetup group grid [inside of the top stripe](http://mperrotti.com/temp_storage/LocalMeetups_city.png)
-* If the user is scoped to country or wider, make the Meetup group grid [it's own stripe](http://mperrotti.com/temp_storage/LocalMeetups_worldwide.png)
-* Show these groups in order of activity
 * If there are 4 or more MUGs within 100 miles, show 4 MUGs
 * If there are <4 MUGs within 100 miles, show alternative layout:
   * [3 Meetups](http://mperrotti.com/temp_storage/3mugs.png)
@@ -32,6 +24,10 @@ Message me if you have issues.
 * When a user has typed 2 characters, begin returning results
   * Wait 250ms before showing [loading state](http://mperrotti.com/temp_storage/TopicSearch_loading.png)
 * If no results are returned, show [empty state] (http://mperrotti.com/temp_storage/TopicSearch_empty.png)
+
+### Global MUGs
+* Clicking anywhere except the linked city name takes the user to the MUG
+* Clicking the linked city name takes the user to the /find page, scoped to that city
 
 ## Preview different data in the prototype
 * passing `?topic={topic-shortname}` will show data about another topic
