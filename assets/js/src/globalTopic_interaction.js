@@ -72,10 +72,12 @@ function cityFuzzySearch(event) {
 				// else, show empty state
 
 		} else {
-			if (cityPickerArea[i].classList)
+			if (cityPickerArea[i].classList) {
 				cityPickerArea[i].classList.remove('display--none');
-			else
+				searchResults.className += ' ' + 'display--none';
+			} else {
 				cityPickerArea[i].className = cityPickerArea[i].className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+			}
 		}
 	}
 }

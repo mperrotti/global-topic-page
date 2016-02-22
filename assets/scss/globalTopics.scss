@@ -105,9 +105,26 @@ $dotTimeBase: 500;
 	width: 100%;
 }
 
+.text--wrangleLarge {
+	font-size: calc(2vw + 2vh + 1vmin);
+
+	@include atMediaUp(medium) {
+		font-size: $font-size-display2;
+	}
+}
+
+.text--wrangleLarge2 {
+	font-size: $font-size-display2;
+
+	@include atMediaUp(medium) {
+		font-size: $font-size-display3;
+	}
+}
+
 //
 // PAGE-SPECIFIC
 //
+
 .titleFilter {
 	border-bottom: 2px solid $C_link;
 }
